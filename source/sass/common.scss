@@ -23,6 +23,8 @@ $light-back2: #d6cbc2;
 $dark-back: #121d21;
 $dark-back2: #2d4341;
 
+$phone-size: 1024px;
+
 @mixin apple-style-blur($blur: 15px) {
     backdrop-filter: blur($blur);
     -webkit-backdrop-filter: blur($blur);
@@ -40,6 +42,17 @@ $dark-back2: #2d4341;
     background-clip: text;
     -moz-background-clip: text;
     -webkit-background-clip: text;
+}
+
+@mixin background-image($url) {
+    background-image: url($url);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin interact-transition($properties: all, $delay: 200ms, $animation: ease) {
+    transition: $properties $delay $animation;
 }
 
 @font-face {

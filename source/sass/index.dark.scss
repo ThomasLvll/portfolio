@@ -1,7 +1,42 @@
 @import 'common.scss';
 
 
+html,
 body {
     background: $dark-back;
+    color: $color3-6;
 }
 
+a {
+    color: $color2-6;
+}
+
+.title {
+    color: $color4-5;
+}
+
+#topbar {
+    background: rgba(0, 0, 0, .5);
+    
+    #topbar-nav-menu {
+        span.active,
+        span:focus,
+        span:hover {
+            color: $color5-6;
+        }
+
+        a:not(:last-child) span {
+            border-right: solid .05em $color3-6;
+        }
+    }
+}
+
+#header {
+    #back-wave {
+        color: $dark-back2;
+    }
+
+    #front-wave {
+        color: $dark-back;
+    }
+}

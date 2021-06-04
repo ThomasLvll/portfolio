@@ -8,9 +8,29 @@ body {
     font-family: 'Alata', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 32px;
+    font-size: 24px;
     background: $light-back;
     color: $color1-4;
+}
+
+a {
+    text-decoration: none;
+    color: $color2-5;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+a:active {
+    color: $color2-4;
+    @include interact-transition;
+}
+
+.title {
+    color: $color4-4;
+    font-size: 1.4em;
 }
 
 #topbar {
@@ -20,14 +40,14 @@ body {
     left: 0;
     width: 100%;
     padding: 8px 0;
-    font-size: .75em;
+    font-size: 1em;
     background: rgba(255, 255, 255, .5);
     border-radius: 0 0 10px 10px;
     @include apple-style-blur;
 
     #topbar-nav-menu {
         text-align: center;
-        line-height: 1em;
+        // line-height: 1em;
 
         a {
             @include no-link-style;
@@ -40,11 +60,12 @@ body {
         span.active,
         span:focus,
         span:hover {
+            @include interact-transition;
             color: $color3-4;
         }
 
         a:not(:last-child) span {
-            border-right: solid 1px $color1-4;
+            border-right: solid .05em $color1-4;
         }
     }
 }
@@ -53,7 +74,7 @@ body {
     position: relative;
     width: 100%;
     height: 50vw;
-    overflow-x: hidden;
+    overflow: hidden;
 
     > * {
         position: absolute;
@@ -65,20 +86,19 @@ body {
         z-index: 0;
         top: 0;
         height: 100%;
-        background-image: url('/res/img/header-back.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        @include background-image('/res/img/header-back.png');
         filter: blur(4px);
         -webkit-filter: blur(4px);
     }
 
     #back-wave,
     #front-wave {
-        bottom: 0;
-        height: 24vw;
+        bottom: -2vw;
+        height: fit-content;
 
-        > svg {            
+        > svg {
+            height: 30vw;
+            
             > path {
                 fill: currentColor;
             }
@@ -105,12 +125,46 @@ body {
     }
 }
 
+.anchor {
+    padding-top: 5vw;
+}
+
 #content-flow {
     position: relative;
     z-index: 4;
-    top: 50vw;
+    top: 20vw;
     margin: auto;
     width: 80vw;
     height: 500vw;
-    background: black;
+
+    #about-me {
+        display: flex;
+
+        #profile-picture {
+            width: 10em;
+            height: 10em;
+            margin: auto;
+            margin-right: 5vw;
+            background-color: #fff;
+            @include background-image('/res/img/profile-picture.jpeg');
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, .25);
+            border-radius: 6.5vw;
+            flex-shrink: 0;
+        }
+
+        #profile-description {
+            text-align: justify;
+            margin: auto;
+
+            .title {
+                display: block;
+                padding: 0;
+                $margin: .12em;
+                margin-bottom: $margin;
+                padding-bottom: $margin;
+                width: fit-content;
+                border-bottom: solid $margin;
+            }
+        }
+    }
 }

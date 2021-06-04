@@ -8,9 +8,25 @@ body {
   font-family: 'Alata', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 32px;
+  font-size: 24px;
   background: #fdf7f2;
   color: #1e3138; }
+
+a {
+  text-decoration: none;
+  color: #2a9d8f; }
+
+a:hover,
+a:focus {
+  text-decoration: underline; }
+
+a:active {
+  color: #1b655c;
+  transition: all 200ms ease; }
+
+.title {
+  color: #b85d14;
+  font-size: 1.4em; }
 
 #topbar {
   position: fixed;
@@ -19,14 +35,13 @@ body {
   left: 0;
   width: 100%;
   padding: 8px 0;
-  font-size: .75em;
+  font-size: 1em;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 0 0 10px 10px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px); }
   #topbar #topbar-nav-menu {
-    text-align: center;
-    line-height: 1em; }
+    text-align: center; }
     #topbar #topbar-nav-menu a {
       color: inherit;
       text-decoration: none; }
@@ -35,15 +50,16 @@ body {
     #topbar #topbar-nav-menu span.active,
     #topbar #topbar-nav-menu span:focus,
     #topbar #topbar-nav-menu span:hover {
+      transition: all 200ms ease;
       color: #6f5410; }
     #topbar #topbar-nav-menu a:not(:last-child) span {
-      border-right: solid 1px #1e3138; }
+      border-right: solid 0.05em #1e3138; }
 
 #header {
   position: relative;
   width: 100%;
   height: 50vw;
-  overflow-x: hidden; }
+  overflow: hidden; }
   #header > * {
     position: absolute;
     left: 0;
@@ -53,18 +69,21 @@ body {
     top: 0;
     height: 100%;
     background-image: url("/res/img/header-back.png");
-    background-size: cover;
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     filter: blur(4px);
     -webkit-filter: blur(4px); }
   #header #back-wave,
   #header #front-wave {
-    bottom: 0;
-    height: 24vw; }
-    #header #back-wave > svg > path,
-    #header #front-wave > svg > path {
-      fill: currentColor; }
+    bottom: -2vw;
+    height: fit-content; }
+    #header #back-wave > svg,
+    #header #front-wave > svg {
+      height: 30vw; }
+      #header #back-wave > svg > path,
+      #header #front-wave > svg > path {
+        fill: currentColor; }
   #header #back-wave {
     z-index: 1;
     color: #d6cbc2; }
@@ -79,13 +98,40 @@ body {
     text-align: center;
     color: #fdf7f2; }
 
+.anchor {
+  padding-top: 5vw; }
+
 #content-flow {
   position: relative;
   z-index: 4;
-  top: 50vw;
+  top: 20vw;
   margin: auto;
   width: 80vw;
-  height: 500vw;
-  background: black; }
+  height: 500vw; }
+  #content-flow #about-me {
+    display: flex; }
+    #content-flow #about-me #profile-picture {
+      width: 10em;
+      height: 10em;
+      margin: auto;
+      margin-right: 5vw;
+      background-color: #fff;
+      background-image: url("/res/img/profile-picture.jpeg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
+      border-radius: 6.5vw;
+      flex-shrink: 0; }
+    #content-flow #about-me #profile-description {
+      text-align: justify;
+      margin: auto; }
+      #content-flow #about-me #profile-description .title {
+        display: block;
+        padding: 0;
+        margin-bottom: 0.12em;
+        padding-bottom: 0.12em;
+        width: fit-content;
+        border-bottom: solid 0.12em; }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,7 +1,29 @@
 @font-face {
   font-family: 'Alata';
   src: url("/res/font/Alata-Regular.ttf"); }
+html,
 body {
-  background: #121d21; }
+  background: #121d21;
+  color: #fff0cc; }
+
+a {
+  color: #9cc9c4; }
+
+.title {
+  color: #f4a261; }
+
+#topbar {
+  background: rgba(0, 0, 0, 0.5); }
+  #topbar #topbar-nav-menu span.active,
+  #topbar #topbar-nav-menu span:focus,
+  #topbar #topbar-nav-menu span:hover {
+    color: #fab09e; }
+  #topbar #topbar-nav-menu a:not(:last-child) span {
+    border-right: solid 0.05em #fff0cc; }
+
+#header #back-wave {
+  color: #2d4341; }
+#header #front-wave {
+  color: #121d21; }
 
 /*# sourceMappingURL=index.dark.css.map */
