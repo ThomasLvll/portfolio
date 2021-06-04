@@ -138,11 +138,12 @@ a:active {
     }
 
     .anchor {
-        padding: 0 .5em;
+        padding: 0;
+        padding-left: .5em;
         width: fit-content;
         font-size: 2.5em;
         color: $color5-5;
-        border: solid .15em;
+        border-left: solid .1em;
     }
 
     #about-me {

@@ -34,8 +34,12 @@ body {
 
     .anchor {
         padding: 0;
+        padding-bottom: .2em;
         width: auto;
         font-size: 2em;
+        border: none;
+        border-top: solid .1em;
+        border-bottom: solid .1em;
     }
 
     #about-me {

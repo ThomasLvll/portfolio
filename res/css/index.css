@@ -110,11 +110,12 @@ a:active {
   #content-flow > * {
     padding: 10vw; }
   #content-flow .anchor {
-    padding: 0 .5em;
+    padding: 0;
+    padding-left: .5em;
     width: fit-content;
     font-size: 2.5em;
     color: #e76f51;
-    border: solid .15em; }
+    border-left: solid .1em; }
   #content-flow #about-me {
     display: flex; }
     #content-flow #about-me .anchor {
