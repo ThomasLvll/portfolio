@@ -1,0 +1,48 @@
+$color1-4: #1e3138;
+$color1-5: #264653;
+$color1-6: #2e7692; // not tested yet
+
+$color2-4: #1b655c;
+$color2-5: #2a9d8f;
+$color2-6: #9cc9c4;
+
+$color3-4: #6f5410;
+$color3-5: #e9c46a;
+$color3-6: #fff0cc;
+
+$color4-3: #78563a;
+$color4-4: #b85d14;
+$color4-5: #f4a261;
+
+$color5-5: #e76f51;
+$color5-6: #fab09e;
+
+$light-back: #fdf7f2;
+$light-back2: #d6cbc2;
+
+$dark-back: #121d21;
+$dark-back2: #2d4341;
+
+@mixin apple-style-blur($blur: 15px) {
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+}
+
+@mixin no-link-style {
+    color: inherit;
+    text-decoration: none;
+}
+
+@mixin excavated-text($color) {
+    background: $color;
+    color: transparent;
+    text-shadow: 0 2px 3px rgba(255, 255, 255, .5);
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+}
+
+@font-face {
+    font-family: 'Alata';
+    src: url('/res/font/Alata-Regular.ttf');
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AA4CA,UAGC;EAFG,WAAW,EAAE,OAAO;EACpB,GAAG,EAAE,kCAAkC;AC3C3C,IAAK;EACD,UAAU,EDkBF,OAAO",
+"sources": ["../../source/sass/common.scss","../../source/sass/index.dark.scss"],
+"names": [],
+"file": "index.dark.css"
+}

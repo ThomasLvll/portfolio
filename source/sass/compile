@@ -1,0 +1,7 @@
+#! /bin/bash
+
+for file in *.scss
+do
+    name=`basename "$file" ".scss"`
+    scss "$file" "../../res/css/$name.css"
+done

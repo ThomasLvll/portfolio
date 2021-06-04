@@ -1,0 +1,116 @@
+@import 'common.scss';
+
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    font-family: 'Alata', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    background: $light-back;
+    color: $color1-4;
+}
+
+#topbar {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 0;
+    font-size: .75em;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 0 0 10px 10px;
+    @include apple-style-blur;
+
+    #topbar-nav-menu {
+        text-align: center;
+        line-height: 1em;
+
+        a {
+            @include no-link-style;
+        }
+
+        span {
+            padding: 0 2em;
+        }
+
+        span.active,
+        span:focus,
+        span:hover {
+            color: $color3-4;
+        }
+
+        a:not(:last-child) span {
+            border-right: solid 1px $color1-4;
+        }
+    }
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 50vw;
+    overflow-x: hidden;
+
+    > * {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    #header-back {
+        z-index: 0;
+        top: 0;
+        height: 100%;
+        background-image: url('/res/img/header-back.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
+    }
+
+    #back-wave,
+    #front-wave {
+        bottom: 0;
+        height: 24vw;
+
+        > svg {            
+            > path {
+                fill: currentColor;
+            }
+        }
+    }
+
+    #back-wave {
+        z-index: 1;
+        color: $light-back2;
+    }
+
+    #front-wave {
+        z-index: 3;
+        color: $light-back;
+    }
+
+    #header-title {
+        position: fixed;
+        z-index: 2;
+        top: 10vw;
+        font-size: 7vw;
+        text-align: center;
+        color: $light-back;
+    }
+}
+
+#content-flow {
+    position: relative;
+    z-index: 4;
+    top: 50vw;
+    margin: auto;
+    width: 80vw;
+    height: 500vw;
+    background: black;
+}

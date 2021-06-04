@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AA4CA,UAGC;EAFG,WAAW,EAAE,OAAO;EACpB,GAAG,EAAE,kCAAkC",
+"sources": ["../../source/sass/common.scss"],
+"names": [],
+"file": "common.css"
+}
