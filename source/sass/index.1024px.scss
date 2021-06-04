@@ -15,7 +15,7 @@ body {
     #back-wave,
     #front-wave {
         > svg {
-            height: 20vw;
+            height: 25vw;
         }
     }
 
@@ -24,12 +24,19 @@ body {
     }
 }
 
-.anchor {
-    padding-top: 12vw;
-}
-
 #content-flow {
-    top: 10vw;
+    padding-top: 0;
+    text-align: center;
+
+    > * {
+        padding-top: 20vw;
+    }
+
+    .anchor {
+        padding: 0;
+        width: auto;
+        font-size: 2em;
+    }
 
     #about-me {
         flex-direction: column;

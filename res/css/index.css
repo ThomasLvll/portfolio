@@ -30,7 +30,7 @@ a:active {
 
 #topbar {
   position: fixed;
-  z-index: 5;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -59,7 +59,10 @@ a:active {
   position: relative;
   width: 100%;
   height: 50vw;
-  overflow: hidden; }
+  overflow: hidden;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none; }
   #header > * {
     position: absolute;
     left: 0;
@@ -85,31 +88,37 @@ a:active {
       #header #front-wave > svg > path {
         fill: currentColor; }
   #header #back-wave {
-    z-index: 1;
+    z-index: 2;
     color: #d6cbc2; }
   #header #front-wave {
-    z-index: 3;
+    z-index: 6;
     color: #fdf7f2; }
   #header #header-title {
     position: fixed;
-    z-index: 2;
+    z-index: 4;
     top: 10vw;
     font-size: 7vw;
     text-align: center;
     color: #fdf7f2; }
 
-.anchor {
-  padding-top: 5vw; }
-
 #content-flow {
   position: relative;
-  z-index: 4;
-  top: 20vw;
-  margin: auto;
-  width: 80vw;
-  height: 500vw; }
+  z-index: 8;
+  padding: 10vw 0;
+  width: 100%;
+  background: #fdf7f2; }
+  #content-flow > * {
+    padding: 10vw; }
+  #content-flow .anchor {
+    padding: 0 .5em;
+    width: fit-content;
+    font-size: 2.5em;
+    color: #e76f51;
+    border: solid .15em; }
   #content-flow #about-me {
     display: flex; }
+    #content-flow #about-me .anchor {
+      display: none; }
     #content-flow #about-me #profile-picture {
       width: 10em;
       height: 10em;
@@ -122,7 +131,10 @@ a:active {
       background-repeat: no-repeat;
       box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
       border-radius: 6.5vw;
-      flex-shrink: 0; }
+      flex-shrink: 0;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none; }
     #content-flow #about-me #profile-description {
       text-align: justify;
       margin: auto; }

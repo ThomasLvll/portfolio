@@ -11,15 +11,19 @@ body {
   height: 60vw; }
   #header #back-wave > svg,
   #header #front-wave > svg {
-    height: 20vw; }
+    height: 25vw; }
   #header #header-title {
     top: 20vw; }
 
-.anchor {
-  padding-top: 12vw; }
-
 #content-flow {
-  top: 10vw; }
+  padding-top: 0;
+  text-align: center; }
+  #content-flow > * {
+    padding-top: 20vw; }
+  #content-flow .anchor {
+    padding: 0;
+    width: auto;
+    font-size: 2em; }
   #content-flow #about-me {
     flex-direction: column; }
     #content-flow #about-me #profile-picture {

@@ -35,6 +35,12 @@ $phone-size: 1024px;
     text-decoration: none;
 }
 
+@mixin not-selectable {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 @mixin excavated-text($color) {
     background: $color;
     color: transparent;
@@ -49,6 +55,11 @@ $phone-size: 1024px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+@mixin filter($filters) {
+    filter: $filters;
+    -webkit-filter: $filters;
 }
 
 @mixin interact-transition($properties: all, $delay: 200ms, $animation: ease) {
