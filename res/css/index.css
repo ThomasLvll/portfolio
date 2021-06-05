@@ -51,7 +51,7 @@ a {
   -webkit-backdrop-filter: blur(15px); }
   .tooltip.visible {
     z-index: 100;
-    opacity: 1;
+    opacity: .8;
     transition: all 200ms ease; }
 
 #topbar {
@@ -180,6 +180,7 @@ a {
     display: flex;
     flex-direction: column; }
     #content-flow #skills .skill-row {
+      position: relative;
       display: flex;
       justify-content: space-evenly;
       margin-bottom: 2em; }

@@ -10,13 +10,42 @@ $LANG = json_decode($lang_file_content);
 
 $DATA = json_decode(file_get_contents("./res/data/data.json"));
 
+$VARS = [
+    "age" => "20"
+];
+
+function replace_vars($str) {
+    global $VARS;
+    foreach ($VARS as $var => $value)
+        $str = str_replace("[[$var]]", $value, $str);
+    return $str;
+}
+
+function lang(...$args) {
+    global $LANG;
+    $res = $LANG;
+    foreach ($args as $arg) {
+        $res = $res->$arg;
+    }
+    return replace_vars($res);
+}
+
+function data(...$args) {
+    global $DATA;
+    $res = $DATA;
+    foreach ($args as $arg) {
+        $res = $res->$arg;
+    }
+    return $res;
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="fr-FR">
     <head>
         <meta charset="utf-8" />
-        <title><?= $LANG->general->page_title ?></title>
+        <title><?= lang("general", "page_title") ?></title>
         
         <!-- external CSS goes below -->
         <link rel="stylesheet" type="text/css" href="/res/css/index.css?v=<?= time() ?>" />
@@ -26,40 +55,40 @@ $DATA = json_decode(file_get_contents("./res/data/data.json"));
     <body>
         <div id="topbar"><div id="topbar-nav-menu">
             <a href="#about-me"><span id="about-me-nav-item" class="active"><?=
-                $LANG->sections->about_me->nav_menu
+                lang("sections", "about_me", "nav_menu")
             ?></span></a><a href="#skills"><span id="skills-nav-item"><?=
-                $LANG->sections->skills->nav_menu
+                lang("sections", "skills", "nav_menu")
             ?></span></a><a href="#projects"><span id="projects-nav-item"><?=
-                $LANG->sections->projects->nav_menu
+                lang("sections", "projects", "nav_menu")
             ?></span></a><a href="#experience"><span id="experience-nav-item"><?=
-                $LANG->sections->experience->nav_menu
+                lang("sections", "experience", "nav_menu")
             ?></span></a><a href="#contact"><span id="contact-nav-item"><?=
-                $LANG->sections->contact->nav_menu
+                lang("sections", "contact", "nav_menu")
             ?></span></a>
         </div></div>
         <div id="header">
             <div id="header-back"></div>
             <div id="back-wave"><?= file_get_contents("./res/img/back-wave.svg") ?></div>
-            <span id="header-title"><?= $LANG->general->header_title ?></span>
+            <span id="header-title"><?= lang("general", "header_title") ?></span>
             <div id="front-wave"><?= file_get_contents("./res/img/front-wave.svg") ?></div>
         </div>
         <div id="content-flow">
             <div id="about-me">
-                <div class="anchor"><?= $LANG->sections->about_me->anchor ?></div>
+                <div class="anchor"><?= lang("sections", "about_me", "anchor") ?></div>
                 <div id="profile-picture"></div>
                 <div id="profile-description"><span class="title"><?=
-                        $LANG->sections->about_me->profile_title
+                        lang("sections", "about_me", "profile_title")
                     ?></span><span class="content"><?=
-                        $LANG->sections->about_me->profile_description
+                        lang("sections", "about_me", "profile_description")
                     ?></span><div id="social-links"><?php
-                    foreach ($DATA->social_links as $k => $v) {
+                    foreach (data("social_links") as $k => $v) {
                     ?>
                         <a target="_blank" href="<?=
-                            $DATA->social_links->$k->url
+                            data("social_links", $k, "url")
                         ?>"><span class="icon" style="background-image: url('<?=
-                            $DATA->social_links->$k->icon
+                            data("social_links", $k, "icon")
                         ?>');" tooltip="<?=
-                            $LANG->social_links->$k->tooltip
+                            lang("social_links", $k, "tooltip")
                         ?>"></span></a>
                     <?php
                     }
@@ -68,22 +97,22 @@ $DATA = json_decode(file_get_contents("./res/data/data.json"));
                 </div>
             </div>
             <div id="skills">
-                <div class="anchor"><?= $LANG->sections->skills->anchor ?></div>
-                <?php foreach ($DATA->skills as $skill_row) {
+                <div class="anchor"><?= lang("sections", "skills", "anchor") ?></div>
+                <?php foreach (data("skills") as $skill_row) {
                 ?>
                     <div class="skill-row">
-                    <?php foreach ($skill_row as $k => $v) {
-                    ?>
+                        <?php foreach ($skill_row as $k => $v) {
+                        ?>
                         <div class="skill"><div class="icon" style="background-image: url('<?=
                             $v->icon
                         ?>');"></div><span class="title"><?=
-                            $LANG->skills->$k->title
+                            lang("skills", $k, "title")
                         ?></span><span class="content"><?=
-                            $LANG->skills->$k->description
+                            lang("skills", $k, "description")
                         ?></span></div>
-                    <?php
-                    }
-                    ?>
+                        <?php
+                        }
+                        ?>
                     </div>
                 <?php
                 }

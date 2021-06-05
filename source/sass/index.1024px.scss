@@ -4,8 +4,8 @@ body {
 }
 
 .tooltip {
-    z-index: 100;
-    opacity: 1;
+    z-index: 9;
+    opacity: 0;
 }
 
 #topbar {
@@ -69,11 +69,20 @@ body {
         .skill-row {
             overflow-x: scroll;
             justify-content: initial;
+            margin-left: -10vw;
+            margin-right: -10vw;
 
             .skill {
-                $margin: 10%;
-                margin: 0 $margin;
-                min-width: 100% - ($margin * 2);
+                margin: 0 5vw;
+                min-width: 70vw;
+
+                &:first-child {
+                    margin-left: 10vw;
+                }
+
+                &:last-child {
+                    margin-right: 10vw;
+                }
             }
         }
     }

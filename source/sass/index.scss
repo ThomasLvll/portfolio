@@ -55,7 +55,7 @@ a {
 
     &.visible {
         z-index: 100;
-        opacity: 1;
+        opacity: .8;
         @include interact-transition;
     }
 }
@@ -222,6 +222,7 @@ a {
         flex-direction: column;
 
         .skill-row {
+            position: relative;
             display: flex;
             justify-content: space-evenly;
             margin-bottom: 2em;

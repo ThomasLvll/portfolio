@@ -3,8 +3,8 @@ body {
   font-size: 38px; }
 
 .tooltip {
-  z-index: 100;
-  opacity: 1; }
+  z-index: 9;
+  opacity: 0; }
 
 #topbar {
   font-size: 1.2em;
@@ -44,9 +44,15 @@ body {
       margin-right: auto; }
   #content-flow #skills .skill-row {
     overflow-x: scroll;
-    justify-content: initial; }
+    justify-content: initial;
+    margin-left: -10vw;
+    margin-right: -10vw; }
     #content-flow #skills .skill-row .skill {
-      margin: 0 10%;
-      min-width: 80%; }
+      margin: 0 5vw;
+      min-width: 70vw; }
+      #content-flow #skills .skill-row .skill:first-child {
+        margin-left: 10vw; }
+      #content-flow #skills .skill-row .skill:last-child {
+        margin-right: 10vw; }
 
 /*# sourceMappingURL=index.1024px.css.map */

@@ -8,7 +8,7 @@
         "about_me": {
             "nav_menu": "Présentation",
             "anchor": "À propos de moi",
-            "profile_title": "Thomas Léveillé, [age] ans",
+            "profile_title": "Thomas Léveillé, [[age]] ans",
             "profile_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit diam risus sit justo, consectetur vehicula consequat volutpat. Consequat egestas nisi, pharetra proin nisl vel <a target='_blank' href='https://www.ecole-ipssi.com'>IPSSI Paris</a>. Laoreet placerat quis in quis feugiat eu porta integer. Quisque eget dictum elementum consectetur gravida. Praesent. Texte de remplissage pour voir la taille du cadre."
         },
         "skills": {
