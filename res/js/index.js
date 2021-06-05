@@ -7,6 +7,35 @@ function getPosition(element) {
 }
 
 
+let tooltip_delays = {};
+
+
+function tooltipEnter(event) {
+    const element = this;
+    const tooltip_id = element.getAttribute("tooltip-id");
+    const tooltip_delay = element.getAttribute("tooltip-delay") || .3;
+    let tooltip = document.querySelector("#tooltip-" + tooltip_id);
+    tooltip_delays[tooltip_id] = setTimeout(function() {
+        const pos = getPosition(element);
+        const x = parseInt(pos.left + (element.clientWidth / 2) - (tooltip.clientWidth / 2));
+        const y = parseInt(pos.top + element.clientHeight + 20);
+        tooltip.style.left = x + "px";
+        tooltip.style.top = y + "px";
+        tooltip.classList.add("visible");
+    }, tooltip_delay * 1000);
+    console.log(tooltip_delays);
+}
+
+
+function tooltipLeave(event) {
+    const element = this;
+    const tooltip_id = element.getAttribute("tooltip-id");
+    tooltip_delays[tooltip_id] = clearTimeout(tooltip_delays[tooltip_id]);
+    let tooltip = document.querySelector("#tooltip-" + tooltip_id);
+    tooltip.classList.remove("visible");
+}
+
+
 document.body.onload = function() {
     let tooltip_index = 0;
 
@@ -17,19 +46,10 @@ document.body.onload = function() {
         tooltip.id = "tooltip-" + tooltip_index;
         tooltip.innerText = element.getAttribute("tooltip");
         document.body.appendChild(tooltip);
-        const pos = getPosition(element);
-        const x = parseInt(pos.left + (element.clientWidth / 2) - (tooltip.clientWidth / 2));
-        const y = parseInt(pos.top + element.clientHeight + 10);
-        tooltip.style.left = x + "px";
-        tooltip.style.top = y + "px";
         element.setAttribute("tooltip-id", tooltip_index);
         element.setAttribute("tooltip", "");
-        element.addEventListener("mouseenter", function() {
-            document.querySelector("#tooltip-" + this.getAttribute("tooltip-id")).classList.add("visible");
-        });
-        element.addEventListener("mouseleave", function() {
-            document.querySelector("#tooltip-" + this.getAttribute("tooltip-id")).classList.remove("visible");
-        });
+        element.addEventListener("mouseenter", tooltipEnter);
+        element.addEventListener("mouseleave", tooltipLeave);
         tooltip_index ++;
     });
 };
