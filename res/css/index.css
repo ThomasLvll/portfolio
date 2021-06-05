@@ -176,6 +176,14 @@ a {
         padding-top: 1vw;
         justify-content: space-around;
         font-size: 1.5em; }
+        #content-flow #about-me #profile-description #social-links .icon {
+          fill: red; }
+        #content-flow #about-me #profile-description #social-links .icon:active,
+        #content-flow #about-me #profile-description #social-links .icon:focus,
+        #content-flow #about-me #profile-description #social-links .icon:hover {
+          filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333));
+          -webkit-filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333));
+          transition: all 200ms ease; }
   #content-flow #skills {
     display: flex;
     flex-direction: column; }
