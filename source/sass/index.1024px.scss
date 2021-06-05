@@ -3,6 +3,11 @@ body {
     font-size: 38px;
 }
 
+.tooltip {
+    z-index: 100;
+    opacity: 1;
+}
+
 #topbar {
     font-size: 1.2em;
     padding: 20px 0;
@@ -56,6 +61,19 @@ body {
             .title {
                 margin-left: auto;
                 margin-right: auto;
+            }
+        }
+    }
+
+    #skills {
+        .skill-row {
+            overflow-x: scroll;
+            justify-content: initial;
+
+            .skill {
+                $margin: 10%;
+                margin: 0 $margin;
+                min-width: 100% - ($margin * 2);
             }
         }
     }

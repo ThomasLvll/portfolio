@@ -62,6 +62,14 @@ $phone-size: 1024px;
     -webkit-filter: $filters;
 }
 
+@mixin transform($transformations) {
+    transform: $transformations;
+    -o-transform: $transformations;
+    -ms-transform: $transformations;
+    -moz-transform: $transformations;
+    -webkit-transform: $transformations;
+}
+
 @mixin interact-transition($properties: all, $delay: 200ms, $animation: ease) {
     transition: $properties $delay $animation;
 }

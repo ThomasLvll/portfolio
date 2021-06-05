@@ -15,18 +15,44 @@ body {
 a {
   text-decoration: none;
   color: #2a9d8f; }
+  a:hover, a:focus {
+    text-decoration: underline; }
+  a:active {
+    color: #1b655c;
+    transition: all 200ms ease; }
 
-a:hover,
-a:focus {
-  text-decoration: underline; }
-
-a:active {
-  color: #1b655c;
-  transition: all 200ms ease; }
+.icon {
+  display: block;
+  width: 2em;
+  height: 2em;
+  background-image: url("");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .title {
   color: #b85d14;
   font-size: 1.4em; }
+
+.tooltip {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  padding: .2em .5em;
+  font-size: .8em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: .25em;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); }
+  .tooltip.visible {
+    z-index: 100;
+    opacity: 1;
+    transition: all 200ms ease; }
 
 #topbar {
   position: fixed;
@@ -45,15 +71,13 @@ a:active {
     #topbar #topbar-nav-menu a {
       color: inherit;
       text-decoration: none; }
+      #topbar #topbar-nav-menu a:not(:last-child) span {
+        border-right: solid 0.05em #1e3138; }
     #topbar #topbar-nav-menu span {
       padding: 0 2em; }
-    #topbar #topbar-nav-menu span.active,
-    #topbar #topbar-nav-menu span:focus,
-    #topbar #topbar-nav-menu span:hover {
-      transition: all 200ms ease;
-      color: #6f5410; }
-    #topbar #topbar-nav-menu a:not(:last-child) span {
-      border-right: solid 0.05em #1e3138; }
+      #topbar #topbar-nav-menu span.active, #topbar #topbar-nav-menu span:focus, #topbar #topbar-nav-menu span:hover {
+        transition: all 200ms ease;
+        color: #6f5410; }
 
 #header {
   position: relative;
@@ -110,12 +134,13 @@ a:active {
   #content-flow > * {
     padding: 10vw; }
   #content-flow .anchor {
+    margin-bottom: 1em;
     padding: 0;
     padding-left: .5em;
     width: fit-content;
     font-size: 2.5em;
     color: #e76f51;
-    border-left: solid .1em; }
+    border-left: solid 1.4em; }
   #content-flow #about-me {
     display: flex; }
     #content-flow #about-me .anchor {
@@ -146,5 +171,38 @@ a:active {
         padding-bottom: 0.12em;
         width: fit-content;
         border-bottom: solid 0.12em; }
+      #content-flow #about-me #profile-description #social-links {
+        display: flex;
+        padding-top: 1vw;
+        justify-content: space-around;
+        font-size: 1.5em; }
+  #content-flow #skills {
+    display: flex;
+    flex-direction: column; }
+    #content-flow #skills .skill-row {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 2em; }
+      #content-flow #skills .skill-row .skill {
+        width: 22.5vw; }
+        #content-flow #skills .skill-row .skill > * {
+          display: block; }
+        #content-flow #skills .skill-row .skill .icon {
+          margin: auto;
+          margin-bottom: .5em;
+          padding: .25em;
+          width: 5em;
+          height: 5em;
+          background-color: #fdf7f2;
+          background-size: 4em;
+          border: solid 0.2em #f4a261;
+          border-radius: 100%;
+          box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3), 0 4px 4px rgba(0, 0, 0, 0.35); }
+        #content-flow #skills .skill-row .skill .title {
+          margin-bottom: .25em;
+          font-size: 1.2em;
+          text-align: center; }
+        #content-flow #skills .skill-row .skill .content {
+          text-align: justify; }
 
 /*# sourceMappingURL=index.css.map */

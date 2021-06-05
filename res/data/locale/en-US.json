@@ -1,0 +1,38 @@
+{
+    "general": {
+        "page_title": "My portfolio — Thomas Léveillé",
+        "header_title": "Fullstack developer"
+    },
+    "sections": {
+        "about_me": {
+            "nav_menu": "About me",
+            "anchor": "Who am I",
+            "profile_title": "Thomas Léveillé, [age]",
+            "profile_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit diam risus sit justo, consectetur vehicula consequat volutpat. Consequat egestas nisi, pharetra proin nisl vel <a target='_blank' href='https://www.ecole-ipssi.com'>IPSSI Paris</a>. Laoreet placerat quis in quis feugiat eu porta integer. Quisque eget dictum elementum consectetur gravida. Praesent. Texte de remplissage pour voir la taille du cadre."
+        },
+        "skills": {
+            "nav_menu": "Skills",
+            "anchor": "My skills"
+        },
+        "projects": {
+            "nav_menu": "Projects",
+            "anchor": "My development projects"
+        },
+        "experience": {
+            "nav_menu": "Expérience",
+            "anchor": "My professional experience"
+        },
+        "contact": {
+            "nav_menu": "Contact",
+            "anchor": "Contact me"
+        }
+    },
+    "social_links": {
+        "github": {
+            "tooltip": "GitHub"
+        },
+        "linkedin": {
+            "tooltip": "LinkedIn"
+        }
+    }
+}

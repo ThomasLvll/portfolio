@@ -2,6 +2,10 @@ html,
 body {
   font-size: 38px; }
 
+.tooltip {
+  z-index: 100;
+  opacity: 1; }
+
 #topbar {
   font-size: 1.2em;
   padding: 20px 0;
@@ -38,5 +42,11 @@ body {
     #content-flow #about-me #profile-description .title {
       margin-left: auto;
       margin-right: auto; }
+  #content-flow #skills .skill-row {
+    overflow-x: scroll;
+    justify-content: initial; }
+    #content-flow #skills .skill-row .skill {
+      margin: 0 10%;
+      min-width: 80%; }
 
 /*# sourceMappingURL=index.1024px.css.map */

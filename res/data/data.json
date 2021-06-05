@@ -1,0 +1,57 @@
+{
+    "social_links": {
+        "github": {
+            "icon": "/res/img/icon/social/github.svg",
+            "url": "https://www.github.com/ThomasLvll"
+        },
+
+        "linkedin": {
+            "icon": "/res/img/icon/social/linkedin.svg",
+            "url": "https://www.linkedin.com/in/thomas-léveillé-208470198/"
+        }
+    },
+
+    "skills": [
+        {
+            "css_sass": {
+                "icon": "/res/img/icon/lang/css.svg"
+            },
+            "js": {
+                "icon": "/res/img/icon/lang/js.svg"
+            },
+            "mysql": {
+                "icon": "/res/img/icon/lang/mysql.svg"
+            }
+        },
+        {
+            "php": {
+                "icon": "/res/img/icon/lang/php.svg"
+            },
+            "python3": {
+                "icon": "/res/img/icon/lang/python.svg"
+            }
+        },
+        {
+            "vs_code": {
+                "icon": "/res/img/icon/software/vs-code.svg"
+            },
+            "phpstorm": {
+                "icon": "/res/img/icon/software/phpstorm.svg"
+            },
+            "git_github": {
+                "icon": "/res/img/icon/software/git.svg"
+            }
+        },
+        {
+            "figma": {
+                "icon": "/res/img/icon/software/figma.svg"
+            },
+            "adobe_xd": {
+                "icon": "/res/img/icon/software/adobe-xd.svg"
+            },
+            "vmware": {
+                "icon": "/res/img/icon/software/vmware.svg"
+            }
+        }
+    ]
+}

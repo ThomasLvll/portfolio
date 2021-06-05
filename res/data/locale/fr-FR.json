@@ -1,0 +1,88 @@
+{
+    "general": {
+        "page_title": "Mon portfolio — Thomas Léveillé",
+        "header_title": "Développeur Fullstack"
+    },
+
+    "sections": {
+        "about_me": {
+            "nav_menu": "Présentation",
+            "anchor": "À propos de moi",
+            "profile_title": "Thomas Léveillé, [age] ans",
+            "profile_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit diam risus sit justo, consectetur vehicula consequat volutpat. Consequat egestas nisi, pharetra proin nisl vel <a target='_blank' href='https://www.ecole-ipssi.com'>IPSSI Paris</a>. Laoreet placerat quis in quis feugiat eu porta integer. Quisque eget dictum elementum consectetur gravida. Praesent. Texte de remplissage pour voir la taille du cadre."
+        },
+        "skills": {
+            "nav_menu": "Compétences",
+            "anchor": "Mes compétences"
+        },
+        "projects": {
+            "nav_menu": "Projets",
+            "anchor": "Mes projets"
+        },
+        "experience": {
+            "nav_menu": "Expérience",
+            "anchor": "Mon expérience professionnelle"
+        },
+        "contact": {
+            "nav_menu": "Contact",
+            "anchor": "Me contacter"
+        }
+    },
+
+    "social_links": {
+        "github": {
+            "tooltip": "GitHub"
+        },
+
+        "linkedin": {
+            "tooltip": "LinkedIn"
+        }
+    },
+
+    "skills": {
+        "css_sass": {
+            "title": "CSS3 & SASS",
+            "description": "Design d'un site avec utilisation de <i>media queries</i> pour gérer le comportement responsif, de transitions et animations, variables etc."
+        },
+        "js": {
+            "title": "JavaScript",
+            "description": "Vérification de formulaires, ajout d'un aspect dynamique aux pages. Maîtrise correcte du <i>framework</i> jQuery."
+        },
+        "mysql": {
+            "title": "MySQL",
+            "description": "Via phpMyAdmin ou Adminer, création, modification et suppression de tables, création de clés étrangères et de relations entre les tables."
+        },
+        "php": {
+            "title": "PHP7",
+            "description": "Inclusion de <i>templates</i> au sein des pages pour des projets plus structurés, gestion des formulaires et connexion aux bases de données MySQL, système d'authentification sécurisé par génération de <i>tokens</i>."
+        },
+        "python3": {
+            "title": "Python 3",
+            "description": "Développement web avec les <i>frameworks</i> Django et Flask."
+        },
+        "vs_code": {
+            "title": "Visual Studio Code",
+            "description": ""
+        },
+        "phpstorm": {
+            "title": "PhpStorm",
+            "description": ""
+        },
+        "git_github": {
+            "title": "Git & GitHub",
+            "description": ""
+        },
+        "figma": {
+            "title": "Figma",
+            "description": ""
+        },
+        "adobe_xd": {
+            "title": "Adobe XD",
+            "description": ""
+        },
+        "vmware": {
+            "title": "VMware",
+            "description": "Création et utilisation régulière de machines virtuelles Windows, GNU/Linux (Debian, Ubuntu) et macOS."
+        }
+    }
+}

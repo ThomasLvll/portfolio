@@ -15,6 +15,11 @@ a {
     color: $color4-5;
 }
 
+.tooltip {
+    color: #000;
+    background: rgba(255, 255, 255, .75);
+}
+
 #topbar {
     background: rgba(0, 0, 0, .5);
     
@@ -52,7 +57,10 @@ a {
         #profile-picture {
             background-color: #000;
             box-shadow: inset 0 0 20px #000;
-            @include filter(brightness(90%) contrast(90%));
+        }
+
+        #profile-description #social-links {
+            @include filter(invert(1));
         }
     }
 }
