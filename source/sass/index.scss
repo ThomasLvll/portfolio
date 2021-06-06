@@ -13,6 +13,10 @@ body {
     color: $color1-4;
 }
 
+strong {
+    color: $color1-6;
+}
+
 a {
     text-decoration: none;
     color: $color2-5;
@@ -53,11 +57,11 @@ a {
     border-radius: .25em;
     @include apple-style-blur;
 
-    &.visible {
-        z-index: 100;
-        opacity: .8;
-        @include interact-transition;
-    }
+    // &.visible {
+    //     z-index: 100;
+    //     opacity: .8;
+    //     @include interact-transition;
+    // }
 }
 
 #topbar {
