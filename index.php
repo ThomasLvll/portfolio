@@ -1,18 +1,37 @@
 <?php
 
-$lang_code = "fr-FR";
-if (isset($_GET["lang"]))
-    $lang_code = $_GET["lang"];
+$DATA = json_decode(file_get_contents("./res/data/data.json"));
 
-$lang_file_path = "./res/data/locale/$lang_code.json";
+function data(...$args) {
+    global $DATA;
+    $res = $DATA;
+    foreach ($args as $arg) {
+        $res = $res->$arg;
+    }
+    return $res;
+}
+
+$lang_code = data("default_locale");
+if (isset($_GET["lang"])) {
+    $get_lang = str_replace("-", "_", $_GET["lang"]);
+    if (isset($DATA->locales->$get_lang))
+        $lang_code = $_GET["lang"];
+}
+
+$lang_data = data("locales", str_replace("-", "_", $lang_code));
+$lang_file_path = $lang_data->path;
 $lang_file_content = file_get_contents($lang_file_path);
 $LANG = json_decode($lang_file_content);
 
-$DATA = json_decode(file_get_contents("./res/data/data.json"));
 
 $VARS = [
-    "age" => "20"
+    "age" => "20",
+    "/link" => "</a>"
 ];
+
+foreach (data("links") as $id => $link) {
+    $VARS["link_$id"] = "<a target='_blank' href='$link'>";
+}
 
 function replace_vars($str) {
     global $VARS;
@@ -30,19 +49,10 @@ function lang(...$args) {
     return replace_vars($res);
 }
 
-function data(...$args) {
-    global $DATA;
-    $res = $DATA;
-    foreach ($args as $arg) {
-        $res = $res->$arg;
-    }
-    return $res;
-}
-
 ?>
 
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="<?= $lang_code ?>">
     <head>
         <meta charset="utf-8" />
         <title><?= lang("general", "page_title") ?></title>

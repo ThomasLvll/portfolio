@@ -12,6 +12,9 @@ body {
   background: #fdf7f2;
   color: #1e3138; }
 
+strong {
+  color: #2e7692; }
+
 a {
   text-decoration: none;
   color: #2a9d8f; }
@@ -49,10 +52,6 @@ a {
   border-radius: .25em;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px); }
-  .tooltip.visible {
-    z-index: 100;
-    opacity: .8;
-    transition: all 200ms ease; }
 
 #topbar {
   position: fixed;

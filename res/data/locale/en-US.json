@@ -8,19 +8,19 @@
             "nav_menu": "About me",
             "anchor": "Who am I",
             "profile_title": "Thomas Léveillé, [[age]]",
-            "profile_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit diam risus sit justo, consectetur vehicula consequat volutpat. Consequat egestas nisi, pharetra proin nisl vel <a target='_blank' href='https://www.ecole-ipssi.com'>IPSSI Paris</a>. Laoreet placerat quis in quis feugiat eu porta integer. Quisque eget dictum elementum consectetur gravida. Praesent. Texte de remplissage pour voir la taille du cadre."
+            "profile_description": "I am a second year student of <strong>SIO</strong> BTS, <strong>SLAM</strong> option <i>(France)</i> at [[link_IPSSI_school]]IPSSI school[[/link]] in Paris. Computer enthusiast for many years, I acquired a good fundation in self-taught development before my studies. I'm interested in everything that has to do with IT and programming, which motivates me to quickly assimilate new knowledge and skills in these areas."
         },
         "skills": {
             "nav_menu": "Skills",
-            "anchor": "My skills"
+            "anchor": "Skills"
         },
         "projects": {
             "nav_menu": "Projects",
-            "anchor": "My development projects"
+            "anchor": "Development projects"
         },
         "experience": {
-            "nav_menu": "Expérience",
-            "anchor": "My professional experience"
+            "nav_menu": "Experience",
+            "anchor": "Professional experience"
         },
         "contact": {
             "nav_menu": "Contact",

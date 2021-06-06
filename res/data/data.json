@@ -1,4 +1,19 @@
 {
+    "default_locale": "fr-FR",
+
+    "locales": {
+        "fr_FR": {
+            "path": "./res/data/locale/fr-FR.json",
+            "icon": "/res/img/icon/locale/fr-FR.svg",
+            "title": "Français"
+        },
+        "en_US": {
+            "path": "./res/data/locale/en-US.json",
+            "icon": "/res/img/icon/locale/en-US.svg",
+            "title": "English"
+        }
+    },
+
     "social_links": {
         "github": {
             "icon": "/res/img/icon/social/github.svg",
@@ -9,6 +24,10 @@
             "icon": "/res/img/icon/social/linkedin.svg",
             "url": "https://www.linkedin.com/in/thomas-léveillé-208470198/"
         }
+    },
+
+    "links": {
+        "IPSSI_school": "https://www.ecole-ipssi.com"
     },
 
     "skills": [

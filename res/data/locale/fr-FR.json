@@ -9,19 +9,19 @@
             "nav_menu": "Présentation",
             "anchor": "À propos de moi",
             "profile_title": "Thomas Léveillé, [[age]] ans",
-            "profile_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit diam risus sit justo, consectetur vehicula consequat volutpat. Consequat egestas nisi, pharetra proin nisl vel <a target='_blank' href='https://www.ecole-ipssi.com'>IPSSI Paris</a>. Laoreet placerat quis in quis feugiat eu porta integer. Quisque eget dictum elementum consectetur gravida. Praesent. Texte de remplissage pour voir la taille du cadre."
+            "profile_description": "Je suis étudiant en deuxième année de BTS <strong>Services Informatiques aux Organisations</strong>, option <strong>Solutions Logicielles et Applications Métiers</strong> à [[link_IPSSI_school]]l'école IPSSI Paris[[/link]]. Passionné d'informatique depuis de nombreuses années, j'ai acquis avant mes études de bonnes bases en développement en autodidacte. Je m'intéresse à tout ce qui a un rapport avec l’informatique et la programmation, ce qui me motive à assimiler rapidement de nouvelles connaissances et compétences dans ces domaines. Autonome, patient et rigoureux, j’aime le travail en équipe."
         },
         "skills": {
             "nav_menu": "Compétences",
-            "anchor": "Mes compétences"
+            "anchor": "Compétences"
         },
         "projects": {
             "nav_menu": "Projets",
-            "anchor": "Mes projets"
+            "anchor": "Projets"
         },
         "experience": {
             "nav_menu": "Expérience",
-            "anchor": "Mon expérience professionnelle"
+            "anchor": "Expérience professionnelle"
         },
         "contact": {
             "nav_menu": "Contact",

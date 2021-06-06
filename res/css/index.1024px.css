@@ -2,10 +2,6 @@ html,
 body {
   font-size: 38px; }
 
-.tooltip {
-  z-index: 9;
-  opacity: 0; }
-
 #topbar {
   font-size: 1.2em;
   padding: 20px 0;
