@@ -8,13 +8,18 @@ body {
     font-family: 'Alata', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 22px;
     background: $light-back;
     color: $color1-4;
 }
 
 strong {
-    color: $color1-6;
+    color: $color1-5;
+}
+
+ul {
+    list-style-type: square;
+    margin-block-start: 0;
 }
 
 a {
@@ -175,7 +180,7 @@ a {
         width: fit-content;
         font-size: 2.5em;
         color: $color5-5;
-        border-left: solid 1.4em;
+        border-left: solid .25em;
     }
 
     #about-me {
@@ -239,11 +244,15 @@ a {
         .skill-row {
             position: relative;
             display: flex;
-            justify-content: space-evenly;
-            margin-bottom: 2em;
+            justify-content: space-between;
+            margin-bottom: 2.5em;
 
             .skill {
-                width: 22.5vw;
+                padding: 0 1em .5em 1em;
+                width: 21vw;
+                background: #fff;
+                border-radius: 1em;
+                box-shadow: inset 0 0 10px rgba(0, 0, 0, .3);
 
                 > * {
                     display: block;
@@ -251,16 +260,16 @@ a {
 
                 .icon {
                     margin: auto;
-                    margin-bottom: .5em;
-                    padding: .25em;
+                    // margin-bottom: .5em;
+                    // padding: .25em;
                     width: 5em;
                     height: 5em;
-                    background-color: $light-back;
+                    // background-color: $light-back;
                     background-size: 4em;
-                    border: solid .2em $color4-5;
-                    border-radius: 100%;
-                    box-shadow: inset 0 0 30px rgba(0, 0, 0, .3),
-                        0 4px 4px rgba(0, 0, 0, .35);
+                    // border: solid .2em $color4-5;
+                    // border-radius: 100%;
+                    // box-shadow: inset 0 0 30px rgba(0, 0, 0, .3),
+                        // 0 4px 4px rgba(0, 0, 0, .35);
 
                 }
 

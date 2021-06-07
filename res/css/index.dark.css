@@ -4,7 +4,7 @@
 html,
 body {
   background: #121d21;
-  color: #fff0cc; }
+  color: #f7edd4; }
 
 strong {
   color: #e9c46a; }
@@ -26,7 +26,7 @@ a {
   #topbar #topbar-nav-menu span:hover {
     color: #fab09e; }
   #topbar #topbar-nav-menu a:not(:last-child) span {
-    border-right: solid 0.05em #fff0cc; }
+    border-right: solid 0.05em #f7edd4; }
 
 #header #back-wave {
   color: #2d4341; }
@@ -43,5 +43,7 @@ a {
   #content-flow #about-me #profile-description #social-links > * {
     filter: invert(1);
     -webkit-filter: invert(1); }
+  #content-flow #skills .skill-row .skill {
+    background: #000; }
 
 /*# sourceMappingURL=index.dark.css.map */

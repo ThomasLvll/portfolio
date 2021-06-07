@@ -67,4 +67,10 @@ a {
             @include filter(invert(1));
         }
     }
+
+    #skills {
+        .skill-row .skill {
+            background: #000;
+        }
+    }
 }

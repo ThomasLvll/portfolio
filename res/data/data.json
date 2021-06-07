@@ -48,6 +48,9 @@
             },
             "python3": {
                 "icon": "/res/img/icon/lang/python.svg"
+            },
+            "c": {
+                "icon": "/res/img/icon/lang/c.svg"
             }
         },
         {
