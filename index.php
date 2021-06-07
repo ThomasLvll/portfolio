@@ -22,11 +22,6 @@ if (isset($_GET["lang"])) {
         $lang_code = $_GET["lang"];
 }
 
-$lang_data = data("locales", str_replace("-", "_", $lang_code));
-$lang_file_path = $lang_data->path;
-$lang_file_content = file_get_contents($lang_file_path);
-$LANG = json_decode($lang_file_content);
-
 
 $VARS = [
     "age" => "20",
@@ -45,12 +40,13 @@ function replace_vars($str) {
 }
 
 function lang(...$args) {
-    global $LANG;
-    $res = $LANG;
+    global $lang_code;
+    $res = "./res/data/locale";
     foreach ($args as $arg) {
-        $res = $res->$arg;
+        $res .= "/$arg";
     }
-    return replace_vars($res);
+    $res .= "/$lang_code";
+    return replace_vars(file_get_contents($res));
 }
 
 ?>
