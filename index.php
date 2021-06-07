@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$start_t = explode(" ", microtime())[0];
+
 $DATA = json_decode(file_get_contents("./res/data/data.json"));
 
 function data(...$args) {
@@ -135,3 +139,14 @@ function lang(...$args) {
         <script type="text/javascript" src="/res/js/index.js?v=<?= time() ?>"></script>
     </body>
 </html>
+
+<?php
+
+$end_t = explode(" ", microtime())[0];
+
+if (! isset($_SESSION["test-file"]))
+    $_SESSION["test-file"] = array();
+$elapsed_t = $end_t - $start_t;
+array_push($_SESSION["test-file"], $elapsed_t);
+
+?>

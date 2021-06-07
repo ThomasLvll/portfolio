@@ -1,0 +1,3 @@
+Inclusion de <i>templates</i> au sein des pages pour des projets plus structurés,
+gestion des formulaires et connexion aux bases de données MySQL,
+système d'authentification sécurisé par génération de <i>tokens</i>.
