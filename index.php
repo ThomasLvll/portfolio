@@ -144,9 +144,9 @@ function lang(...$args) {
 
 $end_t = explode(" ", microtime())[0];
 
-if (! isset($_SESSION["test-file"]))
-    $_SESSION["test-file"] = array();
+if (! isset($_SESSION["test-json"]))
+    $_SESSION["test-json"] = array();
 $elapsed_t = $end_t - $start_t;
-array_push($_SESSION["test-file"], $elapsed_t);
+array_push($_SESSION["test-json"], $elapsed_t);
 
 ?>
