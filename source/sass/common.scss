@@ -73,7 +73,7 @@ $phone-size: 1024px;
     -webkit-transform: $transformations;
 }
 
-@mixin interact-transition($properties: all, $delay: 200ms, $animation: ease) {
+@mixin interact-transition($properties: all, $delay: 250ms, $animation: ease) {
     transition: $properties $delay $animation;
 }
 

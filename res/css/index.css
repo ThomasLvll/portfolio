@@ -22,7 +22,7 @@ ul {
 a {
   text-decoration: none;
   color: #2a9d8f;
-  transition: color 200ms ease; }
+  transition: color 250ms ease; }
   a:hover, a:focus {
     text-decoration: underline; }
   a:active {
@@ -79,7 +79,7 @@ a {
         border-right: solid 0.05em #1e3138; }
     #topbar #topbar-nav-menu span {
       padding: 0 2em;
-      transition: color 200ms ease; }
+      transition: color 250ms ease; }
       #topbar #topbar-nav-menu span.active, #topbar #topbar-nav-menu span:focus, #topbar #topbar-nav-menu span:hover {
         color: #6f5410; }
 
@@ -182,8 +182,8 @@ a {
         font-size: 1.5em; }
         #content-flow #about-me #profile-description #social-links .icon {
           fill: red;
-          transition: filter 200ms ease;
-          transition: -webkit-filter 200ms ease; }
+          transition: filter 250ms ease;
+          transition: -webkit-filter 250ms ease; }
           #content-flow #about-me #profile-description #social-links .icon:active, #content-flow #about-me #profile-description #social-links .icon:focus, #content-flow #about-me #profile-description #social-links .icon:hover {
             filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333));
             -webkit-filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333)); }

@@ -91,9 +91,9 @@ function lang(...$args) {
                 <div class="anchor"><?= lang("sections", "about_me", "anchor") ?></div>
                 <div id="profile-picture"></div>
                 <div id="profile-description"><span class="title"><?=
-                        lang("sections", "about_me", "profile_title")
+                        lang("about_me", "profile_title")
                     ?></span><span class="content"><?=
-                        lang("sections", "about_me", "profile_description")
+                        lang("about_me", "profile_description")
                     ?></span><div id="social-links"><?php
                     foreach (data("social_links") as $k => $v) {
                     ?>
