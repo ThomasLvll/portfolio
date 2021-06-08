@@ -3,12 +3,10 @@
 
     "locales": {
         "fr_FR": {
-            "path": "./res/data/locale/fr-FR.json",
             "icon": "/res/img/icon/locale/fr-FR.svg",
             "title": "Français"
         },
         "en_US": {
-            "path": "./res/data/locale/en-US.json",
             "icon": "/res/img/icon/locale/en-US.svg",
             "title": "English"
         }
@@ -19,6 +17,11 @@
             "icon": "/res/img/icon/social/github.svg",
             "url": "https://www.github.com/ThomasLvll"
         },
+
+	    "codepen": {
+            "icon": "/res/img/icon/social/codepen.svg",
+            "url": "https://codepen.io/ThomasCoder77"
+	    },
 
         "linkedin": {
             "icon": "/res/img/icon/social/linkedin.svg",

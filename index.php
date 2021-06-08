@@ -30,10 +30,16 @@ foreach (data("links") as $id => $link) {
     $VARS["link_$id"] = "<a target='_blank' href='$link'>";
 }
 
-function replace_vars($str) {
+function filter($str) {
     global $VARS;
+    $removed_suffixes = [ " ", "\n", "\r" ];
+    
     foreach ($VARS as $var => $value)
         $str = str_replace("[[$var]]", $value, $str);
+    
+    foreach ($removed_suffixes as $suffix)
+        if (substr($str, - strlen($suffix)) === $suffix)
+            $str = substr($str, 0, - strlen($suffix));
     return $str;
 }
 
@@ -44,7 +50,7 @@ function lang(...$args) {
         $res .= "/$arg";
     }
     $res .= "/$lang_code";
-    return replace_vars(file_get_contents($res));
+    return filter(file_get_contents($res));
 }
 
 ?>

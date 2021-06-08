@@ -25,6 +25,7 @@ ul {
 a {
     text-decoration: none;
     color: $color2-5;
+    @include interact-transition(color);
 
     &:hover,
     &:focus {
@@ -33,7 +34,6 @@ a {
 
     &:active {
         color: $color2-4;
-        @include interact-transition;
     }
 }
 
@@ -61,16 +61,17 @@ a {
     background: rgba(0, 0, 0, .75);
     border-radius: .25em;
     @include apple-style-blur;
+    // @include interact-transition(opacity);
 
     // &.visible {
     //     z-index: 100;
     //     opacity: .8;
-    //     @include interact-transition;
     // }
 }
 
 #topbar {
     position: fixed;
+    white-space: nowrap;
     z-index: 10;
     top: 0;
     left: 0;
@@ -95,11 +96,12 @@ a {
 
         span {
             padding: 0 2em;
+            @include interact-transition(color);
+
 
             &.active,
             &:focus,
             &:hover {
-                @include interact-transition;
                 color: $color3-4;
             }
         }
@@ -225,13 +227,14 @@ a {
 
                 .icon {
                     fill: red;
-                }
-
-                .icon:active,
-                .icon:focus,
-                .icon:hover {
-                    @include filter(drop-shadow(0 4px 4px rgba(0, 0, 0, 1/3)));
-                    @include interact-transition;
+                    @include interact-transition(filter);
+                    @include interact-transition(-webkit-filter);
+                
+                    &:active,
+                    &:focus,
+                    &:hover {
+                        @include filter(drop-shadow(0 4px 4px rgba(0, 0, 0, 1/3)));
+                    }
                 }
             }
         }
