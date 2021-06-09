@@ -133,6 +133,43 @@ function lang(...$args) {
                 ?>
             </div>
         </div>
+        <div class="popup-window-filter"></div>
+        <div class="popup">
+            <div>
+                <div><?= lang("options", "locale", "title") ?></div>
+                <div>
+                    <ul>
+                        <?php foreach (data("locales") as $k => $v) {
+                        ?>
+                        <li><span class="icon" style="background-image: url('<?=
+                            $v->icon
+                        ?>');"></span><?=
+                            $v->title
+                        ?></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div><?= lang("options", "appearance", "title") ?></div>
+                <div>
+                    <ul>
+                        <?php foreach (data("appearance") as $k => $v) {
+                        ?>
+                        <li><span class="icon" style="background-image: url('<?=
+                            $v->icon
+                        ?>');"></span><?=
+                            lang("options", "appearance", $k)
+                        ?></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <!-- external JS goes below -->
         <!-- <script type="text/javascript" src="/src/js/wavery/wavery.min.js"></script> https://github.com/up2pixy/wavery -->

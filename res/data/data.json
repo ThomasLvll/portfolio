@@ -12,6 +12,20 @@
         }
     },
 
+    "appearance": {
+        "light": {
+            "icon": "/res/img/icon/appearance/light.svg"
+        },
+
+        "dark": {
+            "icon": "/res/img/icon/appearance/dark.svg"
+        },
+
+        "system": {
+            "icon": "/res/img/icon/appearance/system.svg"
+        }
+    },
+
     "social_links": {
         "github": {
             "icon": "/res/img/icon/social/github.svg",
