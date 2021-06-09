@@ -12,6 +12,8 @@
         }
     },
 
+    "default_appearance": "system",
+
     "appearance": {
         "light": {
             "icon": "/res/img/icon/appearance/light.svg"

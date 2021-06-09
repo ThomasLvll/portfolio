@@ -13,11 +13,47 @@ function data(...$args) {
     return $res;
 }
 
+// lang priority (descending):
+// 1. URL ($_GET)
+// 2. session ($_SESSION)
+// 3. browser (headers)
+
+// appearance priority (descending):
+// 1. URL ($_GET)
+// 2. session ($_SESSION)
+// default: system
+
 $lang_code = data("default_locale");
 if (isset($_GET["lang"])) {
     $get_lang = str_replace("-", "_", $_GET["lang"]);
-    if (isset($DATA->locales->$get_lang))
+    if (isset($DATA->locales->$get_lang)) {
         $lang_code = $_GET["lang"];
+        $_SESSION["lang_code"] = $lang_code;
+    }
+} elseif (isset($_SESSION["lang_code"])) {
+    $session_lang = str_replace("-", "_", $_SESSION["lang_code"]);
+    if (isset($DATA->locales->$session_lang))
+        $lang_code = $_SESSION["lang_code"];
+}
+
+$appearance = data("default_appearance");
+if (isset($_GET["appearance"])) {
+    $get_appearance = $_GET["appearance"];
+    if (isset($DATA->appearance->$get_appearance)) {
+        $appearance = $get_appearance;
+        $_SESSION["appearance"] = $appearance;
+    }
+} elseif (isset($_SESSION["appearance"])) {
+    $session_appearance = $_SESSION["appearance"];
+    if (isset($DATA->appearance->$session_appearance))
+        $appearance = $session_appearance;
+}
+
+
+if (isset($_GET["popup"])) {
+    $_SESSION["view_popup"] = $_GET["popup"];
+    header("Location: /");
+    exit();
 }
 
 
@@ -43,6 +79,11 @@ function filter($str) {
     return $str;
 }
 
+function replace_vars($str, $vars) {
+    foreach ($vars as $var => $value)
+        $str = str_replace("%$var%", $value, $str);
+}
+
 function lang(...$args) {
     global $lang_code;
     $res = "./res/data/locale";
@@ -54,7 +95,6 @@ function lang(...$args) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="<?= $lang_code ?>">
     <head>
@@ -62,12 +102,14 @@ function lang(...$args) {
         <title><?= lang("general", "page_title") ?></title>
         
         <!-- external CSS goes below -->
-        <link rel="stylesheet" type="text/css" href="/res/css/index.css?v=<?= time() ?>" />
-        <link rel="stylesheet" type="text/css" href="/res/css/index.dark.css?v=<?= time() ?>" media="(prefers-color-scheme: dark)" />
-        <link rel="stylesheet" type="text/css" href="/res/css/index.1024px.css?v=<?= time() ?>" media="(max-width: 1024px)" />
+        <link id="default-style" rel="stylesheet" type="text/css" href="/res/css/index.css?v=<?= time() ?>" />
+        <link class="appearance" data-appearance="dark" rel="stylesheet" type="text/css"<?= ($appearance === "dark") ? "" : " disabled" ?> href="/res/css/index.dark.css?v=<?= time() ?>" />
+        <link class="appearance" data-appearance="system" rel="stylesheet" type="text/css"<?= ($appearance === "system") ? "" : " disabled" ?> href="/res/css/index.dark.css?v=<?= time() ?>" media="(prefers-color-scheme: dark)" />
+        <link id="mobile-style" rel="stylesheet" type="text/css" href="/res/css/index.1024px.css?v=<?= time() ?>" media="(max-width: 1024px)" />
     </head>
     <body>
         <div id="topbar"><div id="topbar-nav-menu">
+            <a onclick="openPopup('options-menu');"><span id="options-menu-nav-item" class="icon" style="background-image: url('/res/img/icon/settings.svg');"></span></a>
             <a href="#about-me"><span id="about-me-nav-item" class="active"><?=
                 lang("sections", "about_me", "nav_menu")
             ?></span></a><a href="#skills"><span id="skills-nav-item"><?=
@@ -99,9 +141,9 @@ function lang(...$args) {
                     ?>
                         <a target="_blank" href="<?=
                             data("social_links", $k, "url")
-                        ?>"><span class="icon" style="background-image: url('<?=
+                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
                             data("social_links", $k, "icon")
-                        ?>');" tooltip="<?=
+                        ?>');" title="<?=
                             lang("social_links", $k, "tooltip")
                         ?>"></span></a>
                     <?php
@@ -133,40 +175,57 @@ function lang(...$args) {
                 ?>
             </div>
         </div>
-        <div class="popup-window-filter"></div>
-        <div class="popup">
+        <div data-popup="options-menu" class="popup-window-filter<?=
+            (isset($_SESSION["view_popup"]) && $_SESSION["view_popup"] === "options-menu")
+                ? " active"
+                : ""
+        ?>"></div>
+        <div id="options-menu" class="popup<?=
+            (isset($_SESSION["view_popup"]) && $_SESSION["view_popup"] === "options-menu")
+                ? " active"
+                : ""
+        ?>">
             <div>
                 <div><?= lang("options", "locale", "title") ?></div>
                 <div>
-                    <ul>
+                    <div>
                         <?php foreach (data("locales") as $k => $v) {
+                        $key = str_replace("_", "-", $k);
                         ?>
-                        <li><span class="icon" style="background-image: url('<?=
-                            $v->icon
-                        ?>');"></span><?=
-                            $v->title
-                        ?></li>
+                        <a href="?lang=<?= $key ?>&popup=options-menu">
+                            <span class="<?=
+                                ($key === $lang_code) ? "active" : ""
+                            ?>"><span class="icon" style="background-image: url('<?=
+                                $v->icon
+                            ?>');"></span><?=
+                                $v->title
+                            ?></span>
+                        </a>
                         <?php
                         }
                         ?>
-                    </ul>
+                    </div>
                 </div>
             </div>
             <div>
                 <div><?= lang("options", "appearance", "title") ?></div>
                 <div>
-                    <ul>
+                    <div>
                         <?php foreach (data("appearance") as $k => $v) {
                         ?>
-                        <li><span class="icon" style="background-image: url('<?=
-                            $v->icon
-                        ?>');"></span><?=
-                            lang("options", "appearance", $k)
-                        ?></li>
+                        <a href="?appearance=<?= $k ?>&popup=options-menu">
+                            <span class="<?=
+                                ($k === $appearance) ? "active" : ""
+                            ?>"><span class="icon dark-invert" style="background-image: url('<?=
+                                $v->icon
+                            ?>');"></span><?=
+                                lang("options", "appearance", $k)
+                            ?></span>
+                        </a>
                         <?php
                         }
                         ?>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,3 +235,9 @@ function lang(...$args) {
         <script type="text/javascript" src="/res/js/index.js?v=<?= time() ?>"></script>
     </body>
 </html>
+<?php
+
+if (isset($_SESSION["view_popup"]))
+    unset($_SESSION["view_popup"]);
+
+?>

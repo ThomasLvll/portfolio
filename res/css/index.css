@@ -60,6 +60,7 @@ a {
 .popup-window-filter {
   position: fixed;
   z-index: 30;
+  display: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -67,36 +68,54 @@ a {
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px); }
+  .popup-window-filter.active {
+    display: initial; }
 
 .popup {
   position: fixed;
   z-index: 31;
-  display: flex;
+  display: none;
   top: 50%;
   left: 50%;
   width: 70vw;
   margin: auto;
   padding: 1.2em 0;
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  border-radius: 4vw;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%); }
+  .popup.active {
+    display: flex; }
+  .popup .icon {
+    display: inline-block;
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: bottom;
+    margin-right: 1em; }
   .popup > * {
     flex-grow: 1;
     flex-basis: 0; }
     .popup > *:first-child {
       border-right: solid 1px; }
+    .popup > * > * a {
+      color: inherit;
+      text-decoration: none; }
     .popup > * > *:first-child {
+      margin-bottom: 1em;
       text-align: center;
       font-size: 1.2em; }
     .popup > * > *:last-child {
       margin: 0 2vw; }
-      .popup > * > *:last-child ul {
-        list-style: none; }
+      .popup > * > *:last-child > div > a > span {
+        display: block;
+        margin-top: 1em; }
+        .popup > * > *:last-child > div > a > span.active {
+          color: #2e7692; }
 
 #topbar {
   position: fixed;
@@ -106,6 +125,7 @@ a {
   left: 0;
   width: 100%;
   padding: 8px 0;
+  overflow-x: hidden;
   font-size: 1em;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 0 0 10px 10px;
@@ -113,6 +133,9 @@ a {
   -webkit-backdrop-filter: blur(15px); }
   #topbar #topbar-nav-menu {
     text-align: center; }
+    #topbar #topbar-nav-menu #options-menu-nav-item {
+      display: inline;
+      background-size: contain; }
     #topbar #topbar-nav-menu a {
       color: inherit;
       text-decoration: none; }

@@ -36,6 +36,16 @@ function tooltipLeave(event) {
 }
 
 
+function openPopup(popup_name) {
+    window.location.href = "?popup=" + encodeURIComponent(popup_name);
+}
+
+
+function closePopup() {
+    window.location.href = "/";
+}
+
+
 document.body.onload = function() {
     let tooltip_index = 0;
 
@@ -51,5 +61,9 @@ document.body.onload = function() {
         element.addEventListener("mouseenter", tooltipEnter);
         element.addEventListener("mouseleave", tooltipLeave);
         tooltip_index ++;
+    });
+
+    document.querySelectorAll(".popup-window-filter").forEach(function(e) {
+        e.addEventListener("click", closePopup);
     });
 };

@@ -2,6 +2,10 @@ html,
 body {
   font-size: 38px; }
 
+.popup {
+  width: 95vw;
+  font-size: .9em; }
+
 #topbar {
   font-size: 1.2em;
   padding: 20px 0;
