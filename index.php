@@ -113,8 +113,6 @@ function lang(...$args) {
         <link id="mobile-style" rel="stylesheet" type="text/css" href="/res/css/index.1024px.css?v=<?= time() ?>" media="(max-width: 1024px)" />
     </head>
     <body>
-        <img src="./github_contribution_chart.light.svg">
-        <?php exit(); ?>
         <div id="topbar"><div id="topbar-nav-menu">
             <a onclick="openPopup('options-menu');"><span id="options-menu-nav-item" class="icon dark-invert" style="
                 background-image: url('/res/img/icon/settings.svg');
@@ -140,7 +138,12 @@ function lang(...$args) {
         <div id="content-flow">
             <div id="about-me">
                 <div class="anchor"><?= lang("sections", "about_me", "anchor") ?></div>
-                <div id="profile-picture"></div>
+                <div id="profile-flip-card" class="flip-card">
+                    <div class="flip-card-inner">
+                        <div id="profile-picture" class="flip-card-front"></div>
+                        <div id="github-contribution-chart" class="flip-card-back"></div>
+                    </div>
+                </div>
                 <div id="profile-description"><span class="title"><?=
                         lang("about_me", "profile_title")
                     ?></span><span class="content"><?=

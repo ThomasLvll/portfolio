@@ -55,11 +55,15 @@ body {
     #about-me {
         flex-direction: column;
 
-        #profile-picture {
+        #profile-flip-card {
             width: 12.5em;
             height: 12.5em;
             margin-right: auto;
             margin-bottom: 4vw;
+
+            >.flip-card-inner > #github-contribution-chart {
+                background-size: 85%;
+            }
         }
 
         #profile-description {

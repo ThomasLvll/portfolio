@@ -73,4 +73,8 @@ document.body.onload = function() {
     document.querySelectorAll(".popup-window-filter").forEach(function(e) {
         e.addEventListener("click", closePopup);
     });
+
+    setInterval(function() {
+        document.querySelector("#profile-flip-card").classList.toggle("flipped");
+    }, 4000);
 };

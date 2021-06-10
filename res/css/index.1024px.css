@@ -34,11 +34,13 @@ body {
     border-bottom: solid .1em; }
   #content-flow #about-me {
     flex-direction: column; }
-    #content-flow #about-me #profile-picture {
+    #content-flow #about-me #profile-flip-card {
       width: 12.5em;
       height: 12.5em;
       margin-right: auto;
       margin-bottom: 4vw; }
+      #content-flow #about-me #profile-flip-card > .flip-card-inner > #github-contribution-chart {
+        background-size: 85%; }
     #content-flow #about-me #profile-description .title {
       margin-left: auto;
       margin-right: auto; }
