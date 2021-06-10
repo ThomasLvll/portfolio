@@ -50,8 +50,13 @@ if (isset($_GET["appearance"])) {
 }
 
 
-if (isset($_GET["popup"])) {
-    $_SESSION["view_popup"] = $_GET["popup"];
+if (count($_GET) > 0) {
+    if (isset($_GET["popup"]))
+        $_SESSION["view_popup"] = $_GET["popup"];
+
+    if (isset($_GET["y"]))
+        $_SESSION["scroll_y"] = intval($_GET["y"]);
+    
     header("Location: /");
     exit();
 }
@@ -108,8 +113,12 @@ function lang(...$args) {
         <link id="mobile-style" rel="stylesheet" type="text/css" href="/res/css/index.1024px.css?v=<?= time() ?>" media="(max-width: 1024px)" />
     </head>
     <body>
+        <img src="./github_contribution_chart.light.svg">
+        <?php exit(); ?>
         <div id="topbar"><div id="topbar-nav-menu">
-            <a onclick="openPopup('options-menu');"><span id="options-menu-nav-item" class="icon" style="background-image: url('/res/img/icon/settings.svg');"></span></a>
+            <a onclick="openPopup('options-menu');"><span id="options-menu-nav-item" class="icon dark-invert" style="
+                background-image: url('/res/img/icon/settings.svg');
+            "></span></a>
             <a href="#about-me"><span id="about-me-nav-item" class="active"><?=
                 lang("sections", "about_me", "nav_menu")
             ?></span></a><a href="#skills"><span id="skills-nav-item"><?=
@@ -192,7 +201,7 @@ function lang(...$args) {
                         <?php foreach (data("locales") as $k => $v) {
                         $key = str_replace("_", "-", $k);
                         ?>
-                        <a href="?lang=<?= $key ?>&popup=options-menu">
+                        <a onclick="redirect('?lang=<?= $key ?>&popup=options-menu');">
                             <span class="<?=
                                 ($key === $lang_code) ? "active" : ""
                             ?>"><span class="icon" style="background-image: url('<?=
@@ -213,7 +222,7 @@ function lang(...$args) {
                     <div>
                         <?php foreach (data("appearance") as $k => $v) {
                         ?>
-                        <a href="?appearance=<?= $k ?>&popup=options-menu">
+                        <a onclick="redirect('?appearance=<?= $k ?>&popup=options-menu');">
                             <span class="<?=
                                 ($k === $appearance) ? "active" : ""
                             ?>"><span class="icon dark-invert" style="background-image: url('<?=
@@ -233,11 +242,25 @@ function lang(...$args) {
         <!-- external JS goes below -->
         <!-- <script type="text/javascript" src="/src/js/wavery/wavery.min.js"></script> https://github.com/up2pixy/wavery -->
         <script type="text/javascript" src="/res/js/index.js?v=<?= time() ?>"></script>
+
+        <script id="php-generated-js" type="text/javascript"><?php
+        if (isset($_SESSION["scroll_y"])) {
+        ?>
+window.scroll(window.scrollX, <?= $_SESSION["scroll_y"] ?>);
+        <?php
+        }
+        ?></script>
     </body>
 </html>
 <?php
 
-if (isset($_SESSION["view_popup"]))
-    unset($_SESSION["view_popup"]);
+$session_unsets = [
+    "view_popup",
+    "scroll_y"
+];
+
+foreach ($session_unsets as $k)
+    if (isset($_SESSION[$k]))
+        unset($_SESSION[$k]);
 
 ?>

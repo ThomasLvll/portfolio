@@ -36,13 +36,20 @@ function tooltipLeave(event) {
 }
 
 
+function redirect(url, auto_scroll = true) {
+    const separator = (url.includes("?")) ? "&" : "?";
+    window.location.href = url +
+        ((auto_scroll) ? (separator + "y=" + encodeURIComponent(window.scrollY)) : "");
+}
+
+
 function openPopup(popup_name) {
-    window.location.href = "?popup=" + encodeURIComponent(popup_name);
+    redirect("?popup=" + encodeURIComponent(popup_name));
 }
 
 
 function closePopup() {
-    window.location.href = "/";
+    redirect("/");
 }
 
 
