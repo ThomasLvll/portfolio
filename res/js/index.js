@@ -7,35 +7,6 @@ function getPosition(element) {
 }
 
 
-let tooltip_delays = {};
-
-
-function tooltipEnter(event) {
-    const element = this;
-    const tooltip_id = element.getAttribute("tooltip-id");
-    const tooltip_delay = element.getAttribute("tooltip-delay") || .3;
-    let tooltip = document.querySelector("#tooltip-" + tooltip_id);
-    tooltip_delays[tooltip_id] = setTimeout(function() {
-        const pos = getPosition(element);
-        const x = parseInt(pos.left + (element.clientWidth / 2) - (tooltip.clientWidth / 2));
-        const y = parseInt(pos.top + element.clientHeight + 20);
-        tooltip.style.left = x + "px";
-        tooltip.style.top = y + "px";
-        tooltip.classList.add("visible");
-    }, tooltip_delay * 1000);
-    console.log(tooltip_delays);
-}
-
-
-function tooltipLeave(event) {
-    const element = this;
-    const tooltip_id = element.getAttribute("tooltip-id");
-    tooltip_delays[tooltip_id] = clearTimeout(tooltip_delays[tooltip_id]);
-    let tooltip = document.querySelector("#tooltip-" + tooltip_id);
-    tooltip.classList.remove("visible");
-}
-
-
 function redirect(url, auto_scroll = true) {
     const separator = (url.includes("?")) ? "&" : "?";
     window.location.href = url +
@@ -53,28 +24,28 @@ function closePopup() {
 }
 
 
+function toggleFlipCard(flip_card_name) {
+    document.querySelector(".flip-card#" + flip_card_name).classList.toggle("flipped");
+}
+
+
 document.body.onload = function() {
-    let tooltip_index = 0;
-
-    const element_list = document.querySelectorAll("[tooltip]");
-    element_list.forEach(function(element) {
-        let tooltip = document.createElement("span");
-        tooltip.classList.add("tooltip");
-        tooltip.id = "tooltip-" + tooltip_index;
-        tooltip.innerText = element.getAttribute("tooltip");
-        document.body.appendChild(tooltip);
-        element.setAttribute("tooltip-id", tooltip_index);
-        element.setAttribute("tooltip", "");
-        element.addEventListener("mouseenter", tooltipEnter);
-        element.addEventListener("mouseleave", tooltipLeave);
-        tooltip_index ++;
-    });
-
     document.querySelectorAll(".popup-window-filter").forEach(function(e) {
         e.addEventListener("click", closePopup);
     });
 
-    setInterval(function() {
-        document.querySelector("#profile-flip-card").classList.toggle("flipped");
+
+    let profile_flip_card_interval = setInterval(function() {
+        toggleFlipCard("profile-flip-card");
     }, 4000);
+
+    let profile_flip_card = document.querySelector("#profile-flip-card");
+    
+    profile_flip_card.addEventListener("mouseover", function() {
+        profile_flip_card_interval = clearInterval(profile_flip_card_interval);
+    });
+    
+    profile_flip_card.addEventListener("click", function() {
+        toggleFlipCard("profile-flip-card");
+    });
 };

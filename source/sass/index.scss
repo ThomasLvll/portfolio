@@ -50,26 +50,6 @@ a {
     font-size: 1.4em;
 }
 
-.tooltip {
-    @include not-selectable;
-    cursor: default;
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    padding: .2em .5em;
-    font-size: .8em;
-    color: #fff;
-    background: rgba(0, 0, 0, .75);
-    border-radius: .25em;
-    @include apple-style-blur;
-    // @include interact-transition(opacity);
-
-    // &.visible {
-    //     z-index: 100;
-    //     opacity: .8;
-    // }
-}
-
 .popup-window-filter {
     position: fixed;
     z-index: 30;
@@ -175,9 +155,19 @@ a {
         }
     }
 
+    &:hover {
+        > .flip-card-inner {
+            transform: rotateY(15deg);
+        }
+    }
+
     &.flipped {
         > .flip-card-inner {
             transform: rotateY(180deg);
+            
+            &:hover {
+                transform: rotateY(165deg);
+            }
         }
     }
 }
@@ -323,7 +313,7 @@ a {
                 > * {
                     background-color: #fff;
                     box-shadow: inset 0 0 20px rgba(0, 0, 0, .25);
-                    border-radius: 6.5vw;
+                    border-radius: 2em;
 
                     &#profile-picture {
                         @include background-image('/res/img/profile-picture.jpeg');

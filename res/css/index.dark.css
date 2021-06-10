@@ -19,10 +19,6 @@ a {
 .title {
   color: #f4a261; }
 
-.tooltip {
-  color: #000;
-  background: rgba(255, 255, 255, 0.75); }
-
 .popup {
   background: rgba(0, 0, 0, 0.5); }
   .popup > * > *:last-child > div > a > span.active {

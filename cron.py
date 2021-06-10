@@ -6,7 +6,9 @@ from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
 
 
-with open(os.path.join(os.getcwd(), "res/data/.hidden/github-api-token"), "r") as f:
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+with open(os.path.join(dir_path, "res/data/.hidden/github-api-token"), "r") as f:
     _API_TOKEN = f.read()
 
 headers = {
@@ -43,10 +45,10 @@ themes = {
     "light": {
         "BACKGROUND": "#fff",
         "NONE": "#ebedf0",
-        "FIRST_QUARTILE": "#9effdb",
-        "SECOND_QUARTILE": "#69c5be",
-        "THIRD_QUARTILE": "#358ca2",
-        "FOURTH_QUARTILE": "#005285"
+        "FIRST_QUARTILE": "#9be9a8",
+        "SECOND_QUARTILE": "#40c463",
+        "THIRD_QUARTILE": "#30a14e",
+        "FOURTH_QUARTILE": "#216e39"
     },
     "dark": {
         "BACKGROUND": "#000",
@@ -66,7 +68,7 @@ if result:
         last_weeks = weeks[-7:]
         for theme_name in themes:
             theme = themes[theme_name]
-            path = os.path.join(os.getcwd(), f"res/img/github-contribution-chart.{theme_name}.svg")
+            path = os.path.join(dir_path, f"res/img/github-contribution-chart.{theme_name}.svg")
             with open(path, "w") as f:
                 f.write("<?xml version='1.0' encoding='utf-8'?>")
                 f.write(f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='{theme.get('BACKGROUND')}'>")
