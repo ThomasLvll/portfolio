@@ -33,6 +33,7 @@ a {
   display: block;
   width: 2em;
   height: 2em;
+  fill: currentColor;
   background-image: url("");
   background-position: center;
   background-size: cover;
@@ -243,10 +244,11 @@ a {
           background-size: cover;
           background-repeat: no-repeat; }
         #content-flow #about-me #profile-flip-card > .flip-card-inner > *#github-contribution-chart {
-          background-image: url("/res/img/github-contribution-chart.light.svg");
+          background-image: url("");
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
+          background-image: var(--light-github-contribution-chart);
           background-size: 80%; }
     #content-flow #about-me #profile-description {
       text-align: justify;

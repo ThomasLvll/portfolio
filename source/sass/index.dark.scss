@@ -70,7 +70,7 @@ a {
             box-shadow: inset 0 0 20px #000;
 
             &#github-contribution-chart {
-                background-image: url('/res/img/github-contribution-chart.dark.svg');
+                background-image: var(--dark-github-contribution-chart);
             }
         }
     }

@@ -107,10 +107,16 @@ function lang(...$args) {
         <title><?= lang("general", "page_title") ?></title>
         
         <!-- external CSS goes below -->
+	<style id="php-generated-css" type="text/css">
+:root {
+    --light-github-contribution-chart: url('/res/img/github-contribution-chart.light.svg?v=<?= date("Y-m-d") ?>');
+    --dark-github-contribution-chart: url('/res/img/github-contribution-chart.dark.svg?v=<?= date("Y-m-d") ?>');
+}
+    </style>
         <link id="default-style" rel="stylesheet" type="text/css" href="/res/css/index.css?v=<?= time() ?>" />
         <link class="appearance" data-appearance="dark" rel="stylesheet" type="text/css"<?= ($appearance === "dark") ? "" : " disabled" ?> href="/res/css/index.dark.css?v=<?= time() ?>" />
         <link class="appearance" data-appearance="system" rel="stylesheet" type="text/css"<?= ($appearance === "system") ? "" : " disabled" ?> href="/res/css/index.dark.css?v=<?= time() ?>" media="(prefers-color-scheme: dark)" />
-        <link id="mobile-style" rel="stylesheet" type="text/css" href="/res/css/index.1024px.css?v=<?= time() ?>" media="(max-width: 1024px)" />
+        <link id="mobile-style" rel="stylesheet" type="text/css" href="/res/css/index.1024px.css?v=<?= time() ?>" media="screen and (max-width: 1024px)" />
     </head>
     <body>
         <div id="topbar"><div id="topbar-nav-menu">

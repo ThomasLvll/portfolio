@@ -42,6 +42,7 @@ a {
     display: block;
     width: 2em;
     height: 2em;
+    fill: currentColor;
     @include background-image('');
 }
 
@@ -320,7 +321,8 @@ a {
                     }
 
                     &#github-contribution-chart {
-                        @include background-image('/res/img/github-contribution-chart.light.svg');
+                        @include background-image('');
+                        background-image: var(--light-github-contribution-chart);
                         background-size: 80%;
                     }
                 }

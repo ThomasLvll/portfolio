@@ -53,10 +53,10 @@ themes = {
     "dark": {
         "BACKGROUND": "#000",
         "NONE": "#2d333b",
-        "FIRST_QUARTILE": "#0E4429",
-        "SECOND_QUARTILE": "#006d32",
-        "THIRD_QUARTILE": "#26a641",
-        "FOURTH_QUARTILE": "#39d353"
+        "FIRST_QUARTILE": "#226654",
+        "SECOND_QUARTILE": "#17996c",
+        "THIRD_QUARTILE": "#0bcc85",
+        "FOURTH_QUARTILE": "#00ff9d"
     }
 }
 
