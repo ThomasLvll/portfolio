@@ -109,8 +109,8 @@ function lang(...$args) {
         <!-- external CSS goes below -->
 	<style id="php-generated-css" type="text/css">
 :root {
-    --light-github-contribution-chart: url('/res/img/github-contribution-chart.light.svg?v=<?= date("Y-m-d") ?>');
-    --dark-github-contribution-chart: url('/res/img/github-contribution-chart.dark.svg?v=<?= date("Y-m-d") ?>');
+    --light-github-contribution-chart: url('/res/img/github-contribution-chart/light.svg?v=<?= date("Y-m-d") ?>');
+    --dark-github-contribution-chart: url('/res/img/github-contribution-chart/dark.svg?v=<?= date("Y-m-d") ?>');
 }
     </style>
         <link id="default-style" rel="stylesheet" type="text/css" href="/res/css/index.css?v=<?= time() ?>" />
