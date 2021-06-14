@@ -46,7 +46,9 @@
     },
 
     "links": {
-        "IPSSI_school": "https://www.ecole-ipssi.com"
+        "IPSSI_school": "https://www.ecole-ipssi.com",
+        "VS_Code_rem_dev_ext": "https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack",
+        "VS_Code_live_share_ext": "https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack"
     },
 
     "skills": [

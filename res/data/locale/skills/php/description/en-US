@@ -1,0 +1,3 @@
+Including templates into pages to better structure projetcs,
+managing form field data and connecting to MySQL databases,
+authentication system secured by unique token generation.
