@@ -1,6 +1,6 @@
 <?php
 
-$ROOT = $_SERVER["DOCUMENT_ROOT"];
+$ROOT = dirname(__DIR__);
 
 require "$ROOT/vendor/autoload.php";
 
