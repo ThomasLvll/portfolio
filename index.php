@@ -7,9 +7,8 @@ $DATA = json_decode(file_get_contents("./res/data/data.json"));
 function data(...$args) {
     global $DATA;
     $res = $DATA;
-    foreach ($args as $arg) {
+    foreach ($args as $arg)
         $res = $res->$arg;
-    }
     return $res;
 }
 
@@ -120,8 +119,10 @@ function lang(...$args) {
     </head>
     <body>
         <div id="topbar"><div id="topbar-nav-menu">
-            <a onclick="openPopup('options-menu');"><span id="options-menu-nav-item" class="icon dark-invert" style="
-                background-image: url('/res/img/icon/settings.svg');
+            <a onclick="openPopup('options-menu');"><span id="options-menu-locale-nav-item" class="icon" style="
+                background-image: url('<?= data("locales", str_replace("-", "_", $lang_code), "icon") ?>');
+            "></span> / <span id="options-menu-appearance-nav-item" class="icon dark-invert" style="
+                background-image: url('<?= data("appearance", $appearance, "icon") ?>');
             "></span></a>
             <a href="#about-me"><span id="about-me-nav-item" class="active"><?=
                 lang("sections", "about_me", "nav_menu")

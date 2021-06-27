@@ -41,7 +41,7 @@ a {
             color: $color5-6;
         }
 
-        a:not(:last-child) span {
+        > a:not(:last-child) > span {
             border-right: solid .05em $color3-6;
         }
     }
