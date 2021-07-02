@@ -1,11 +1,10 @@
-@import 'common.scss';
-
+@import "common.scss";
 
 html,
 body {
     margin: 0;
     width: 100%;
-    font-family: 'Alata', sans-serif;
+    font-family: "Alata", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
@@ -43,7 +42,7 @@ a {
     width: 2em;
     height: 2em;
     fill: currentColor;
-    @include background-image('');
+    @include background-image("");
 }
 
 .title {
@@ -60,7 +59,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, 0.1);
     @include apple-style-blur;
 
     &.active {
@@ -77,7 +76,7 @@ a {
     width: 70vw;
     margin: auto;
     padding: 1.2em 0;
-    background: rgba(255, 255, 255, .75);
+    background: rgba(255, 255, 255, 0.75);
     border-radius: 4vw;
     @include apple-style-blur(30px);
     @include transform(translate(-50%, -50%));
@@ -166,7 +165,7 @@ a {
     &.flipped {
         > .flip-card-inner {
             transform: rotateY(180deg);
-            
+
             &:hover {
                 transform: rotateY(165deg);
             }
@@ -184,7 +183,7 @@ a {
     padding: 8px 0;
     overflow-x: hidden;
     font-size: 1em;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 0 0 10px 10px;
     @include apple-style-blur;
 
@@ -194,7 +193,7 @@ a {
 
         #options-menu-locale-nav-item {
             display: inline-block;
-            padding-right: .1em;
+            padding-right: 0.1em;
             width: 1.25em;
             height: 1.25em;
             border-right: none;
@@ -205,7 +204,7 @@ a {
 
         #options-menu-appearance-nav-item {
             display: inline-block;
-            padding-left: .1em;
+            padding-left: 0.1em;
             width: 1.25em;
             height: 1.25em;
             background-origin: content-box;
@@ -217,22 +216,20 @@ a {
             @include no-link-style;
 
             &:not(:last-child) > span {
-                border-right: solid .05em $color1-4;
+                border-right: solid 0.05em $color1-4;
             }
 
             > span {
                 padding: 0 1.5em;
                 @include interact-transition(color);
-    
-    
-                &.active,
-                &:focus,
-                &:hover {
-                    color: $color3-4;
-                }
+            }
+
+            &.active,
+            &:focus,
+            &:hover {
+                color: $color3-4;
             }
         }
-
     }
 }
 
@@ -253,7 +250,7 @@ a {
         z-index: 0;
         top: 0;
         height: 100%;
-        @include background-image('/res/img/header-back.png');
+        @include background-image("/res/img/header-back.png");
         filter: blur(4px);
         -webkit-filter: blur(4px);
     }
@@ -265,7 +262,7 @@ a {
 
         > svg {
             height: 30vw;
-            
+
             > path {
                 fill: currentColor;
             }
@@ -306,19 +303,19 @@ a {
     .anchor {
         margin-bottom: 1em;
         padding: 0;
-        padding-left: .5em;
+        padding-left: 0.5em;
         width: fit-content;
         font-size: 2.5em;
         color: $color5-5;
-        border-left: solid .25em;
+        border-left: solid 0.25em;
     }
 
-    #about-me {
-        display: flex;
+    #about-me > .anchor {
+        display: none;
+    }
 
-        .anchor {
-            display: none;
-        }
+    #about-me > .container {
+        display: flex;
 
         #profile-flip-card {
             width: 10em;
@@ -331,16 +328,20 @@ a {
             > .flip-card-inner {
                 > * {
                     background-color: #fff;
-                    box-shadow: inset 0 0 20px rgba(0, 0, 0, .25);
+                    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
                     border-radius: 2em;
 
                     &#profile-picture {
-                        @include background-image('/res/img/profile-picture.jpeg');
+                        @include background-image(
+                            "/res/img/profile-picture.jpeg"
+                        );
                     }
 
                     &#github-contribution-chart {
-                        @include background-image('');
-                        background-image: var(--light-github-contribution-chart);
+                        @include background-image("");
+                        background-image: var(
+                            --light-github-contribution-chart
+                        );
                         background-size: 80%;
                     }
                 }
@@ -354,7 +355,7 @@ a {
             .title {
                 display: block;
                 padding: 0;
-                $margin: .12em;
+                $margin: 0.12em;
                 margin-bottom: $margin;
                 padding-bottom: $margin;
                 width: fit-content;
@@ -363,7 +364,7 @@ a {
 
             #social-links {
                 display: flex;
-                padding-top: 1vw;
+                padding-top: 2vw;
                 justify-content: space-around;
                 font-size: 1.5em;
 
@@ -371,18 +372,20 @@ a {
                     fill: red;
                     @include interact-transition(filter);
                     @include interact-transition(-webkit-filter);
-                
+
                     &:active,
                     &:focus,
                     &:hover {
-                        @include filter(drop-shadow(0 4px 4px rgba(0, 0, 0, 1/3)));
+                        @include filter(
+                            drop-shadow(0 4px 4px rgba(0, 0, 0, 1/3))
+                        );
                     }
                 }
             }
         }
     }
 
-    #skills {
+    #skills > .container {
         display: flex;
         flex-direction: column;
 
@@ -393,11 +396,11 @@ a {
             margin-bottom: 2.5em;
 
             .skill {
-                padding: 0 1em .5em 1em;
+                padding: 0 1em 0.5em 1em;
                 width: 21vw;
                 background: #fff;
                 border-radius: 1em;
-                box-shadow: inset 0 0 10px rgba(0, 0, 0, .3);
+                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
 
                 > * {
                     display: block;
@@ -414,12 +417,11 @@ a {
                     // border: solid .2em $color4-5;
                     // border-radius: 100%;
                     // box-shadow: inset 0 0 30px rgba(0, 0, 0, .3),
-                        // 0 4px 4px rgba(0, 0, 0, .35);
-
+                    // 0 4px 4px rgba(0, 0, 0, .35);
                 }
 
                 .title {
-                    margin-bottom: .25em;
+                    margin-bottom: 0.25em;
                     font-size: 1.2em;
                     text-align: center;
                 }

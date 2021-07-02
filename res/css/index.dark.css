@@ -26,9 +26,9 @@ a {
 
 #topbar {
   background: rgba(0, 0, 0, 0.5); }
-  #topbar #topbar-nav-menu span.active,
-  #topbar #topbar-nav-menu span:focus,
-  #topbar #topbar-nav-menu span:hover {
+  #topbar #topbar-nav-menu > a.active,
+  #topbar #topbar-nav-menu > a:focus,
+  #topbar #topbar-nav-menu > a:hover {
     color: #fab09e; }
   #topbar #topbar-nav-menu > a:not(:last-child) > span {
     border-right: solid 0.05em #f7edd4; }
@@ -42,12 +42,12 @@ a {
   background: #121d21; }
   #content-flow .anchor {
     color: #fab09e; }
-  #content-flow #about-me #profile-flip-card > .flip-card-inner > * {
+  #content-flow #about-me > .container #profile-flip-card > .flip-card-inner > * {
     background-color: #000;
     box-shadow: inset 0 0 20px #000; }
-    #content-flow #about-me #profile-flip-card > .flip-card-inner > *#github-contribution-chart {
+    #content-flow #about-me > .container #profile-flip-card > .flip-card-inner > *#github-contribution-chart {
       background-image: var(--dark-github-contribution-chart); }
-  #content-flow #skills .skill-row .skill {
+  #content-flow #skills > .container .skill-row .skill {
     background: #1e3138; }
 
 /*# sourceMappingURL=index.dark.css.map */

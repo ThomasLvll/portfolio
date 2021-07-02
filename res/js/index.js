@@ -15,12 +15,22 @@ function redirect(url, auto_scroll = true) {
 
 
 function openPopup(popup_name) {
-    redirect("?popup=" + encodeURIComponent(popup_name));
+    // redirect("?popup=" + encodeURIComponent(popup_name));
+    document.querySelector(".popup-window-filter[data-popup='" + popup_name + "']")
+        .classList.add("active");
+    document.querySelector(".popup#" + popup_name)
+        .classList.add("active");
 }
 
 
 function closePopup() {
-    redirect("/");
+    // redirect("/");
+    document.querySelectorAll(".popup-window-filter, .popup").forEach(function(e) {
+        e.classList.remove("active");
+    });
+    // document.querySelectorAll(".popup").forEach(function(e) {
+        // e.classList.remove("active");
+    // });
 }
 
 

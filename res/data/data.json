@@ -29,6 +29,16 @@
     },
 
     "social_links": {
+        "resume": {
+            "icon": "/res/img/icon/social/resume.svg",
+            "url": "./dl/resume.pdf"
+        },
+
+        "linkedin": {
+            "icon": "/res/img/icon/social/linkedin.svg",
+            "url": "https://www.linkedin.com/in/thomas-léveillé-208470198/"
+        },
+
         "github": {
             "icon": "/res/img/icon/social/github.svg",
             "url": "https://www.github.com/ThomasLvll"
@@ -37,19 +47,16 @@
 	    "codepen": {
             "icon": "/res/img/icon/social/codepen.svg",
             "url": "https://codepen.io/ThomasCoder77"
-	    },
+	    }
 
-        "linkedin": {
-            "icon": "/res/img/icon/social/linkedin.svg",
-            "url": "https://www.linkedin.com/in/thomas-léveillé-208470198/"
-        }
     },
 
     "links": {
         "IPSSI_school": "https://www.ecole-ipssi.com",
         "VS_Code_rem_dev_ext": "https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack",
         "VS_Code_live_share_ext": "https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack",
-        "dl_mockup": "dl/mockup.fig"
+        "dl_cv": "/dl/resume.pdf",
+        "dl_mockup": "/dl/mockup.fig"
     },
 
     "skills": [
