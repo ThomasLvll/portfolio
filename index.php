@@ -47,8 +47,8 @@ if (array_key_exists("contact", $_GET)) {
         ));
         
         $mail_result = $mail->send();
-        $_SESSION["mail_result"] = $mail_result;
-        header("Location: #contact-form");
+        $_SESSION["contact_mail_result"] = $mail_result;
+        header("Location: /#contact-form");
         exit();
     }
 }
@@ -288,9 +288,9 @@ function lang(...$args) {
                                 lang("contact", "form", "message", "placeholder")
                             ?>"></textarea></div>
                             <div><span id="contact-form-result-msg" class="<?=
-                                (isset($_SESSION["mail_result"])) ? "active" : ""
+                                (isset($_SESSION["contact_mail_result"])) ? "active" : ""
                             ?>"><?=
-                                lang("contact", "form", "result-msg", ((isset($_SESSION["mail_result"]) && $_SESSION["mail_result"])) ? "success" : "error")
+                                lang("contact", "form", "result-msg", ((isset($_SESSION["contact_mail_result"]) && $_SESSION["contact_mail_result"])) ? "success" : "error")
                             ?></span><span><label for="contact-form-submit" hidden><?=
                                 lang("contact", "form", "submit", "label")
                             ?></label><button type="submit" id="contact-form-submit"><span class="icon dark-invert" style="
@@ -374,7 +374,7 @@ window.scroll(window.scrollX, <?= $_SESSION["scroll_y"] ?>);
 $session_unsets = [
     "view_popup",
     "scroll_y",
-    "mail_result"
+    "contact_mail_result"
 ];
 
 foreach ($session_unsets as $k)
