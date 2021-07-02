@@ -32,29 +32,29 @@ body {
     border: none;
     border-top: solid .1em;
     border-bottom: solid .1em; }
-  #content-flow #about-me {
+  #content-flow #about-me > .container {
     flex-direction: column; }
-    #content-flow #about-me #profile-flip-card {
+    #content-flow #about-me > .container #profile-flip-card {
       width: 12.5em;
       height: 12.5em;
       margin-right: auto;
       margin-bottom: 4vw; }
-      #content-flow #about-me #profile-flip-card > .flip-card-inner > #github-contribution-chart {
+      #content-flow #about-me > .container #profile-flip-card > .flip-card-inner > #github-contribution-chart {
         background-size: 85%; }
-    #content-flow #about-me #profile-description .title {
+    #content-flow #about-me > .container #profile-description .title {
       margin-left: auto;
       margin-right: auto; }
-  #content-flow #skills .skill-row {
+  #content-flow #skills > .container .skill-row {
     overflow-x: scroll;
     justify-content: initial;
     margin-left: -10vw;
     margin-right: -10vw; }
-    #content-flow #skills .skill-row .skill {
+    #content-flow #skills > .container .skill-row .skill {
       margin: 0 5vw;
       min-width: 60vw; }
-      #content-flow #skills .skill-row .skill:first-child {
+      #content-flow #skills > .container .skill-row .skill:first-child {
         margin-left: 10vw; }
-      #content-flow #skills .skill-row .skill:last-child {
+      #content-flow #skills > .container .skill-row .skill:last-child {
         margin-right: 10vw; }
 
 /*# sourceMappingURL=index.1024px.css.map */

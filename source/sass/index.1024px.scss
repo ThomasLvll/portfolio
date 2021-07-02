@@ -47,7 +47,7 @@ body {
         border-bottom: solid .1em;
     }
 
-    #about-me {
+    #about-me > .container {
         flex-direction: column;
 
         #profile-flip-card {
@@ -69,7 +69,7 @@ body {
         }
     }
 
-    #skills {
+    #skills > .container {
         .skill-row {
             overflow-x: scroll;
             justify-content: initial;
