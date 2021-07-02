@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'c88b9f210d005112456f86662b5c67ac13f47912',
+        'reference' => '4012e7277d6d1eb83f362d289817343604c3fa2c',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'c88b9f210d005112456f86662b5c67ac13f47912',
+            'reference' => '4012e7277d6d1eb83f362d289817343604c3fa2c',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -44,6 +44,15 @@
             'install_path' => __DIR__ . '/../guzzlehttp/psr7',
             'aliases' => array(),
             'reference' => 'dc960a912984efb74d0a90222870c72c87f10c91',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.0',
+            'version' => '6.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
             'dev_requirement' => false,
         ),
         'psr/http-client' => array(
