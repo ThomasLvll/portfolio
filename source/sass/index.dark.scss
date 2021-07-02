@@ -80,4 +80,16 @@ a {
             background: $color1-4;
         }
     }
+
+    #contact > .container {
+        > #contact-form > form > div input,
+        > #contact-form > form > div textarea {
+            color: $color2-6;
+            background: $color1-4;
+
+            &::placeholder {
+                color: #2b7e74;
+            }
+        }
+    }
 }

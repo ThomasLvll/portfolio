@@ -197,6 +197,60 @@ function lang(...$args) {
                     ?>
                 </div>
             </div>
+            <div id="contact">
+                <div class="anchor"><?= lang("sections", "contact", "anchor") ?></div>
+                <div class="container">
+                    <div id="contact-details">
+                        <div id="contact-phone"><a target="_blank" href="<?=
+                            data("contact_details", "phone", "url")
+                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
+                            data("contact_details", "phone", "icon")
+                        ?>');"></span><?=
+                            lang("contact", "details", "phone")
+                        ?></a></div>
+                        <div id="contact-email"><a target="_blank" href="<?=
+                            data("contact_details", "email", "url")
+                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
+                            data("contact_details", "email", "icon")
+                        ?>');"></span><?=
+                            lang("contact", "details", "email")
+                        ?></a></div>
+                        <div id="contact-location"><a target="_blank" href="<?=
+                            data("contact_details", "location", "url")
+                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
+                            data("contact_details", "location", "icon")
+                        ?>');"></span><?=
+                            lang("contact", "details", "location")
+                        ?></a></div>
+                        <div></div>
+                    </div>
+                    <div id="contact-caption" class="title"><?= lang("contact", "caption") ?></div>
+                    <div id="contact-form">
+                        <form action="/contact.php" method="POST">
+                            <div><label for="contact-form-name" hidden><?=
+                                lang("contact", "form", "name", "label")
+                            ?></label><input type="text" id="contact-form-name" name="contact-form-name" placeholder="<?=
+                                lang("contact", "form", "name", "placeholder")
+                            ?>"></div>
+                            <div><label for="contact-form-email" hidden><?=
+                                lang("contact", "form", "email", "label")
+                            ?></label><input type="email" id="contact-form-email" name="contact-form-email" placeholder="<?=
+                                lang("contact", "form", "email", "placeholder")
+                            ?>"></div>
+                            <div><label for="contact-form-message" hidden><?=
+                                lang("contact", "form", "message", "label")
+                            ?></label><textarea name="contact-form-message" id="contact-form-message" placeholder="<?=
+                                lang("contact", "form", "message", "placeholder")
+                            ?>"></textarea></div>
+                            <div><label for="contact-form-submit" hidden><?=
+                                lang("contact", "form", "submit", "label")
+                            ?></label><button type="submit" id="contact-form-submit"><span class="icon dark-invert" style="
+                                background-image: url('/res/img/icon/send.white.svg');
+                            "></span></button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <div data-popup="options-menu" class="popup-window-filter<?=
             (isset($_SESSION["view_popup"]) && $_SESSION["view_popup"] === "options-menu")
