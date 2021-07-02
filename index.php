@@ -1,6 +1,57 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require "vendor/autoload.php";
+
+
+function check_array_keys($keys, $array) {
+    foreach ($keys as $k)
+        if (! array_key_exists($k, $array) || mb_strlen($_POST[$k]) < 1)
+            return false;
+    return true;
+}
+
+function replace_vars($str, $vars) {
+    foreach ($vars as $var => $value)
+        $str = str_replace("[[$var]]", $value, $str);
+    return $str;
+}
+
 session_start();
+
+if (array_key_exists("contact", $_GET)) {
+    if (check_array_keys(array("contact-form-name", "contact-form-email", "contact-form-message"), $_POST)) {
+        $mail_data = json_decode(file_get_contents("./res/data/.hidden/email.json"));
+        $mail = new PHPMailer(true);
+        $mail->SMTPDebug = 0;
+        $mail->CharSet = "UTF-8";
+        $mail->Encoding = "base64";
+        $mail->Host = $mail_data->host;
+        $mail->Username = $mail_data->username;
+        $mail->Password = $mail_data->password;
+        $mail->Port = $mail_data->port;
+
+        $mail->setFrom($mail_data->from_address, $mail_data->from_name);
+        $mail->addAddress($mail_data->recipient);
+        $mail->addReplyTo($_POST["contact-form-email"], $_POST["contact-form-name"]);
+        
+        $mail->isHTML(true);
+        $mail->Subject = "Demande de contact depuis le portfolio";
+        $mail->Body = replace_vars(file_get_contents("./res/mail/contact.html"), array(
+            "domain" => $_SERVER["HTTP_HOST"],
+            "sender_name" => $_POST["contact-form-name"],
+            "sender_email" => $_POST["contact-form-email"],
+            "sender_message" => $_POST["contact-form-message"]
+        ));
+        
+        $mail_result = $mail->send();
+        $_SESSION["mail_result"] = $mail_result;
+        header("Location: #contact-form");
+        exit();
+    }
+}
 
 $DATA = json_decode(file_get_contents("./res/data/data.json"));
 
@@ -74,18 +125,12 @@ function filter($str) {
     global $VARS;
     $removed_suffixes = [ " ", "\n", "\r" ];
     
-    foreach ($VARS as $var => $value)
-        $str = str_replace("[[$var]]", $value, $str);
+    $str = replace_vars($str, $VARS);
     
     foreach ($removed_suffixes as $suffix)
         if (substr($str, - strlen($suffix)) === $suffix)
             $str = substr($str, 0, - strlen($suffix));
     return $str;
-}
-
-function replace_vars($str, $vars) {
-    foreach ($vars as $var => $value)
-        $str = str_replace("%$var%", $value, $str);
 }
 
 function lang(...$args) {
@@ -226,7 +271,7 @@ function lang(...$args) {
                     </div>
                     <div id="contact-caption" class="title"><?= lang("contact", "caption") ?></div>
                     <div id="contact-form">
-                        <form action="/contact.php" method="POST">
+                        <form action="?contact#contact-form" method="POST">
                             <div><label for="contact-form-name" hidden><?=
                                 lang("contact", "form", "name", "label")
                             ?></label><input type="text" id="contact-form-name" name="contact-form-name" placeholder="<?=
@@ -242,11 +287,15 @@ function lang(...$args) {
                             ?></label><textarea name="contact-form-message" id="contact-form-message" placeholder="<?=
                                 lang("contact", "form", "message", "placeholder")
                             ?>"></textarea></div>
-                            <div><label for="contact-form-submit" hidden><?=
+                            <div><span id="contact-form-result-msg" class="<?=
+                                (isset($_SESSION["mail_result"])) ? "active" : ""
+                            ?>"><?=
+                                lang("contact", "form", "result-msg", ((isset($_SESSION["mail_result"]) && $_SESSION["mail_result"])) ? "success" : "error")
+                            ?></span><span><label for="contact-form-submit" hidden><?=
                                 lang("contact", "form", "submit", "label")
                             ?></label><button type="submit" id="contact-form-submit"><span class="icon dark-invert" style="
                                 background-image: url('/res/img/icon/send.white.svg');
-                            "></span></button></div>
+                            "></span></button></span></div>
                         </form>
                     </div>
                 </div>
@@ -324,7 +373,8 @@ window.scroll(window.scrollX, <?= $_SESSION["scroll_y"] ?>);
 
 $session_unsets = [
     "view_popup",
-    "scroll_y"
+    "scroll_y",
+    "mail_result"
 ];
 
 foreach ($session_unsets as $k)

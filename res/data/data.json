@@ -117,7 +117,7 @@
         },
         "location": {
             "icon": "/res/img/icon/contact/location.svg",
-            "url": "https://goo.gl/maps/C2GpZQtzagbhhN2BA"
+            "url": "maps:q=77970%20Jouy-le-Ch%C3%A2tel%2C%20France"
         }
     }
 }
