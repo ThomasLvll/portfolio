@@ -55,7 +55,7 @@
         "IPSSI_school": "https://www.ecole-ipssi.com",
         "VS_Code_rem_dev_ext": "https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack",
         "VS_Code_live_share_ext": "https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack",
-        "dl_cv": "/dl/resume.pdf",
+        "dl_resume": "/dl/resume.pdf",
         "dl_mockup": "/dl/mockup.fig"
     },
 
@@ -104,5 +104,20 @@
                 "icon": "/res/img/icon/software/vmware.svg"
             }
         }
-    ]
+    ],
+
+    "contact_details": {
+        "phone": {
+            "icon": "/res/img/icon/contact/phone.svg",
+            "url": "tel:+33652571013"
+        },
+        "email": {
+            "icon": "/res/img/icon/contact/email.svg",
+            "url": "mailto:leveille.thomas@icloud.com"
+        },
+        "location": {
+            "icon": "/res/img/icon/contact/location.svg",
+            "url": "https://goo.gl/maps/C2GpZQtzagbhhN2BA"
+        }
+    }
 }

@@ -28,6 +28,8 @@ $dark-back2: #2d4341;
 
 $phone-size: 1024px;
 
+$font-family: 'Alata', sans-serif;
+
 @mixin apple-style-blur($blur: 15px) {
     backdrop-filter: blur($blur);
     -webkit-backdrop-filter: blur($blur);
@@ -56,7 +58,7 @@ $phone-size: 1024px;
 @mixin background-image($url) {
     background-image: url($url);
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 

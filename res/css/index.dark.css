@@ -49,5 +49,12 @@ a {
       background-image: var(--dark-github-contribution-chart); }
   #content-flow #skills > .container .skill-row .skill {
     background: #1e3138; }
+  #content-flow #contact > .container > #contact-form > form > div input,
+  #content-flow #contact > .container > #contact-form > form > div textarea {
+    color: #9cc9c4;
+    background: #1e3138; }
+    #content-flow #contact > .container > #contact-form > form > div input::placeholder,
+    #content-flow #contact > .container > #contact-form > form > div textarea::placeholder {
+      color: #2b7e74; }
 
 /*# sourceMappingURL=index.dark.css.map */
