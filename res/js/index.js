@@ -39,6 +39,26 @@ function toggleFlipCard(flip_card_name) {
 }
 
 
+function expandCard(card) {
+    card.classList.add("expanded");
+}
+
+
+function collapseCard(card) {
+    card.classList.remove("expanded");
+}
+
+
+function toggleExpandableCard(card) {
+    console.log(card);
+    if (card.classList.contains("expanded")) {
+        collapseCard(card);
+    } else {
+        expandCard(card);
+    }
+}
+
+
 document.body.onload = function() {
     document.querySelectorAll(".popup-window-filter").forEach(function(e) {
         e.addEventListener("click", closePopup);
@@ -57,5 +77,11 @@ document.body.onload = function() {
     
     profile_flip_card.addEventListener("click", function() {
         toggleFlipCard("profile-flip-card");
+    });
+
+    document.querySelectorAll(".expandable-card").forEach(function(e) {
+        e.querySelector(".expand-cta").addEventListener("click", function() {
+            toggleExpandableCard(e);
+        });
     });
 };

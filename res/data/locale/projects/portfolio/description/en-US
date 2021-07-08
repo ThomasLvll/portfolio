@@ -1,0 +1,3 @@
+The portfolio you are reading was made in PHP7, JavaScript and Sass (SCSS syntax).
+It uses recurring tasks (cron running on Debian) and calls a GraphQL API (GitHub's).
+The contact form works using PHPMailer module.

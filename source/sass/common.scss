@@ -75,8 +75,8 @@ $font-family: 'Alata', sans-serif;
     -webkit-transform: $transformations;
 }
 
-@mixin interact-transition($properties: all, $delay: 250ms, $animation: ease) {
-    transition: $properties $delay $animation;
+@mixin interact-transition($properties: all, $duration: 250ms, $animation: ease) {
+    transition: $properties $duration $animation;
 }
 
 @font-face {
