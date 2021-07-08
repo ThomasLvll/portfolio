@@ -106,6 +106,30 @@
         }
     ],
 
+    "project_links": {
+        "demo": {
+            "icon": "/res/img/icon/laptop.svg"
+        },
+        "github_source_code": {
+            "icon": "/res/img/icon/source-code.svg"
+        },
+        "figma_mockup": {
+            "icon": "/res/img/icon/software/figma.svg"
+        }
+    },
+
+    "projects": {
+        "portfolio": {
+            "illustration": "/res/img/projects/portfolio.light.png",
+            "status": "online",
+            "links": {
+                "demo": "/",
+                "github_source_code": "https://github.com/ThomasLvll/portfolio",
+                "figma_mockup": "/dl/mockup.fig"
+            }
+        }
+    },
+
     "contact_details": {
         "phone": {
             "icon": "/res/img/icon/contact/phone.svg",

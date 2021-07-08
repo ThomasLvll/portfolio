@@ -223,10 +223,12 @@ function lang(...$args) {
                 <div class="container">
                     <?php foreach (data("skills") as $skill_row) {
                     ?>
-                        <div class="skill-row">
+                        <div class="card-row">
                             <?php foreach ($skill_row as $k => $v) {
                             ?>
-                            <div class="skill"><div class="icon" style="background-image: url('<?=
+                            <div class="card" id="skill-<?=
+                                $k
+                            ?>"><div class="icon" style="background-image: url('<?=
                                 $v->icon
                             ?>');"></div><span class="title"><?=
                                 lang("skills", $k, "title")
@@ -237,6 +239,42 @@ function lang(...$args) {
                             }
                             ?>
                         </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div id="projects">
+                <div class="anchor"><?= lang("sections", "projects", "anchor") ?></div>
+                <div class="container">
+                    <?php foreach (data("projects") as $k => $v) {
+                    ?>
+                        <div class="side-card" id="project-<?=
+                            $k
+                        ?>"><div class="header"><span class="title"><span class="status-indicator left <?=
+                            $v->status
+                        ?>" title="<?=
+                            lang("status", $v->status)
+                        ?>"></span><?=
+                            lang("projects", $k, "title")
+                        ?></span><div class="illustration" style="background-image: url('<?=
+                            $v->illustration
+                        ?>');"></div></div><div class="content"><?=
+                            lang("projects", $k, "description")
+                        ?><div class="project-links">
+                            <?php foreach ($v->links as $link_k => $link_v) {
+                            ?>
+                            <a target="_blank" href="<?=
+                                $link_v
+                            ?>"><span class="icon dark-invert" style="background-image: url('<?=
+                                data("project_links", $link_k, "icon")
+                            ?>');" title="<?=
+                                lang("projects", "links", $link_k, "tooltip")
+                            ?>"></span></a>
+                            <?php
+                            }
+                            ?>
+                    </div></div></div>
                     <?php
                     }
                     ?>

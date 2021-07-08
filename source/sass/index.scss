@@ -38,6 +38,30 @@ a {
     }
 }
 
+.status-indicator {
+    display: inline-block;
+    margin-left: .3em;
+    margin-bottom: .1em;
+    width: .4em;
+    height: .4em;
+    border-radius: 100%;
+    background: #000;
+
+    &.left {
+        margin-left: 0;
+        margin-right: .3em;
+    }
+
+    &.online,
+    &.complete {
+        background: #00c500;
+    }
+
+    &.wip {
+        background: #e29300;
+    }
+}
+
 .icon {
     display: block;
     width: 2em;
@@ -153,22 +177,22 @@ a {
         }
 
         > .flip-card-back {
-            transform: rotateY(180deg);
+            @include transform(rotateY(180deg));
         }
     }
 
     &:hover {
         > .flip-card-inner {
-            transform: rotateY(15deg);
+            @include transform(rotateY(15deg));
         }
     }
 
     &.flipped {
         > .flip-card-inner {
-            transform: rotateY(180deg);
+            @include transform(rotateY(180deg));
 
             &:hover {
-                transform: rotateY(165deg);
+                @include transform(rotateY(165deg));
             }
         }
     }
@@ -310,6 +334,85 @@ a {
         border-left: solid .25em;
     }
 
+    .card-row {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2.5em;
+    }
+
+    .card {
+        padding: 0 1em .5em 1em;
+        width: 21vw;
+        background: #fff;
+        border-radius: 1em;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, .3);
+
+        > * {
+            display: block;
+        }
+
+        .icon {
+            margin: auto;
+            width: 5em;
+            height: 5em;
+            background-size: 4em;
+        }
+
+        .title {
+            margin-bottom: .25em;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .content {
+            text-align: justify;
+        }
+    }
+
+    .side-card {
+        display: flex;
+        flex-direction: row;
+
+        > * {
+            margin: auto;
+        }
+
+        > .header {
+            margin-right: 1em;
+            width: 25vw;
+            flex-shrink: 0;
+            text-align: center;
+
+            > .illustration {
+                margin-top: 2vw;
+                width: 100%;
+                height: 25vw;
+                @include background-image("");
+            }
+        }
+
+        > .content {
+            text-align: justify;
+
+            > .project-links {
+                display: flex;
+                margin-top: 2vw;
+                justify-content: space-around;
+                font-size: 1.2em;
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            > .header {
+                margin-left: 1em;
+                margin-right: 0;
+            }
+        }
+    }
+
     #about-me > .anchor {
         display: none;
     }
@@ -367,70 +470,28 @@ a {
                 padding-top: 2vw;
                 justify-content: space-around;
                 font-size: 1.5em;
-
-                .icon {
-                    fill: red;
-                    @include interact-transition(filter);
-                    @include interact-transition(-webkit-filter);
-
-                    &:active,
-                    &:focus,
-                    &:hover {
-                        @include filter(
-                            drop-shadow(0 4px 4px rgba(0, 0, 0, 1/3))
-                        );
-                    }
-                }
             }
         }
     }
 
-    #skills > .container {
+    #about-me #social-links .icon,
+    #projects .project-links .icon {
+        @include interact-transition(filter);
+        @include interact-transition(-webkit-filter);
+
+        &:active,
+        &:focus,
+        &:hover {
+            @include filter(
+                drop-shadow(0 4px 4px rgba(0, 0, 0, 1/3))
+            );
+        }
+    }
+
+    #skills > .container,
+    #projects > .container {
         display: flex;
         flex-direction: column;
-
-        .skill-row {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 2.5em;
-
-            .skill {
-                padding: 0 1em .5em 1em;
-                width: 21vw;
-                background: #fff;
-                border-radius: 1em;
-                box-shadow: inset 0 0 10px rgba(0, 0, 0, .3);
-
-                > * {
-                    display: block;
-                }
-
-                .icon {
-                    margin: auto;
-                    // margin-bottom: .5em;
-                    // padding: .25em;
-                    width: 5em;
-                    height: 5em;
-                    // background-color: $light-back;
-                    background-size: 4em;
-                    // border: solid .2em $color4-5;
-                    // border-radius: 100%;
-                    // box-shadow: inset 0 0 30px rgba(0, 0, 0, .3),
-                    // 0 4px 4px rgba(0, 0, 0, .35);
-                }
-
-                .title {
-                    margin-bottom: .25em;
-                    font-size: 1.2em;
-                    text-align: center;
-                }
-
-                .content {
-                    text-align: justify;
-                }
-            }
-        }
     }
 
     #contact > .container {

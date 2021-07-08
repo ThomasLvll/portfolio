@@ -12,6 +12,11 @@ strong {
 a {
   color: #9cc9c4; }
 
+.status-indicator.online, .status-indicator.complete {
+  background: #63ff63; }
+.status-indicator.wip {
+  background: #ffc354; }
+
 .dark-invert {
   filter: invert(1);
   -webkit-filter: invert(1); }
@@ -42,13 +47,13 @@ a {
   background: #121d21; }
   #content-flow .anchor {
     color: #fab09e; }
+  #content-flow .card {
+    background: #1e3138; }
   #content-flow #about-me > .container #profile-flip-card > .flip-card-inner > * {
     background-color: #000;
     box-shadow: inset 0 0 20px #000; }
     #content-flow #about-me > .container #profile-flip-card > .flip-card-inner > *#github-contribution-chart {
       background-image: var(--dark-github-contribution-chart); }
-  #content-flow #skills > .container .skill-row .skill {
-    background: #1e3138; }
   #content-flow #contact > .container > #contact-form > form > div input,
   #content-flow #contact > .container > #contact-form > form > div textarea {
     color: #9cc9c4;

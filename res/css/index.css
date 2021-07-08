@@ -29,6 +29,22 @@ a {
   a:active {
     color: #1b655c; }
 
+.status-indicator {
+  display: inline-block;
+  margin-left: .3em;
+  margin-bottom: .1em;
+  width: .4em;
+  height: .4em;
+  border-radius: 100%;
+  background: #000; }
+  .status-indicator.left {
+    margin-left: 0;
+    margin-right: .3em; }
+  .status-indicator.online, .status-indicator.complete {
+    background: #00c500; }
+  .status-indicator.wip {
+    background: #e29300; }
+
 .icon {
   display: block;
   width: 2em;
@@ -122,13 +138,29 @@ a {
       -moz-backface-visibility: hidden;
       -webkit-backface-visibility: hidden; }
     .flip-card > .flip-card-inner > .flip-card-back {
-      transform: rotateY(180deg); }
+      transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg); }
   .flip-card:hover > .flip-card-inner {
-    transform: rotateY(15deg); }
+    transform: rotateY(15deg);
+    -o-transform: rotateY(15deg);
+    -ms-transform: rotateY(15deg);
+    -moz-transform: rotateY(15deg);
+    -webkit-transform: rotateY(15deg); }
   .flip-card.flipped > .flip-card-inner {
-    transform: rotateY(180deg); }
+    transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); }
     .flip-card.flipped > .flip-card-inner:hover {
-      transform: rotateY(165deg); }
+      transform: rotateY(165deg);
+      -o-transform: rotateY(165deg);
+      -ms-transform: rotateY(165deg);
+      -moz-transform: rotateY(165deg);
+      -webkit-transform: rotateY(165deg); }
 
 #topbar {
   position: fixed;
@@ -235,6 +267,60 @@ a {
     font-size: 2.5em;
     color: #e76f51;
     border-left: solid .25em; }
+  #content-flow .card-row {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5em; }
+  #content-flow .card {
+    padding: 0 1em .5em 1em;
+    width: 21vw;
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); }
+    #content-flow .card > * {
+      display: block; }
+    #content-flow .card .icon {
+      margin: auto;
+      width: 5em;
+      height: 5em;
+      background-size: 4em; }
+    #content-flow .card .title {
+      margin-bottom: .25em;
+      font-size: 1.2em;
+      text-align: center; }
+    #content-flow .card .content {
+      text-align: justify; }
+  #content-flow .side-card {
+    display: flex;
+    flex-direction: row; }
+    #content-flow .side-card > * {
+      margin: auto; }
+    #content-flow .side-card > .header {
+      margin-right: 1em;
+      width: 25vw;
+      flex-shrink: 0;
+      text-align: center; }
+      #content-flow .side-card > .header > .illustration {
+        margin-top: 2vw;
+        width: 100%;
+        height: 25vw;
+        background-image: url("");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat; }
+    #content-flow .side-card > .content {
+      text-align: justify; }
+      #content-flow .side-card > .content > .project-links {
+        display: flex;
+        margin-top: 2vw;
+        justify-content: space-around;
+        font-size: 1.2em; }
+    #content-flow .side-card:nth-child(even) {
+      flex-direction: row-reverse; }
+      #content-flow .side-card:nth-child(even) > .header {
+        margin-left: 1em;
+        margin-right: 0; }
   #content-flow #about-me > .anchor {
     display: none; }
   #content-flow #about-me > .container {
@@ -279,40 +365,20 @@ a {
         padding-top: 2vw;
         justify-content: space-around;
         font-size: 1.5em; }
-        #content-flow #about-me > .container #profile-description #social-links .icon {
-          fill: red;
-          transition: filter 250ms ease;
-          transition: -webkit-filter 250ms ease; }
-          #content-flow #about-me > .container #profile-description #social-links .icon:active, #content-flow #about-me > .container #profile-description #social-links .icon:focus, #content-flow #about-me > .container #profile-description #social-links .icon:hover {
-            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333));
-            -webkit-filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333)); }
-  #content-flow #skills > .container {
+  #content-flow #about-me #social-links .icon,
+  #content-flow #projects .project-links .icon {
+    transition: filter 250ms ease;
+    transition: -webkit-filter 250ms ease; }
+    #content-flow #about-me #social-links .icon:active, #content-flow #about-me #social-links .icon:focus, #content-flow #about-me #social-links .icon:hover,
+    #content-flow #projects .project-links .icon:active,
+    #content-flow #projects .project-links .icon:focus,
+    #content-flow #projects .project-links .icon:hover {
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333));
+      -webkit-filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333)); }
+  #content-flow #skills > .container,
+  #content-flow #projects > .container {
     display: flex;
     flex-direction: column; }
-    #content-flow #skills > .container .skill-row {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2.5em; }
-      #content-flow #skills > .container .skill-row .skill {
-        padding: 0 1em .5em 1em;
-        width: 21vw;
-        background: #fff;
-        border-radius: 1em;
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); }
-        #content-flow #skills > .container .skill-row .skill > * {
-          display: block; }
-        #content-flow #skills > .container .skill-row .skill .icon {
-          margin: auto;
-          width: 5em;
-          height: 5em;
-          background-size: 4em; }
-        #content-flow #skills > .container .skill-row .skill .title {
-          margin-bottom: .25em;
-          font-size: 1.2em;
-          text-align: center; }
-        #content-flow #skills > .container .skill-row .skill .content {
-          text-align: justify; }
   #content-flow #contact > .container > #contact-details {
     display: flex;
     flex-wrap: wrap;
