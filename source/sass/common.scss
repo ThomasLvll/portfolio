@@ -56,10 +56,11 @@ $font-family: 'Alata', sans-serif;
 }
 
 @mixin background-image($url) {
-    background-image: url($url);
-    background-position: center;
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
+    background-image: url($url);
+    background-origin: content-box;
 }
 
 @mixin filter($filters) {

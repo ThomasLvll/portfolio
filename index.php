@@ -143,6 +143,24 @@ function lang(...$args) {
     return filter(file_get_contents($res));
 }
 
+function image($url, $as_mask = "auto", $size = "contain", $position = "center", $repeat = "no-repeat") {
+    $as_mask = (($as_mask) === "auto" && in_array($url, data("no_mask_icons"))) ? false : $as_mask;
+    return ($as_mask)
+    ?
+        "mask-size:$size;-webkit-mask-size:$size;
+        mask-position:$position;-webkit-mask-position:$position;
+        mask-repeat:$repeat;-webkit-mask-repeat:$repeat;
+        mask-image:url('$url');-webkit-mask-image:url('$url');
+        mask-origin:content-box;-webkit-mask-origin:content-box;
+        background-color:currentColor;"
+    :
+        "background-size:$size;
+        background-position:$position;
+        background-repeat:$repeat;
+        background-image:url('$url');
+        background-origin:content-box;";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang_code ?>">
@@ -164,11 +182,11 @@ function lang(...$args) {
     </head>
     <body>
         <div id="topbar"><div id="topbar-nav-menu">
-            <a id="options-menu-nav-item" onclick="openPopup('options-menu');"><span id="options-menu-locale-nav-item" class="icon" style="
-                background-image: url('<?= data("locales", str_replace("-", "_", $lang_code), "icon") ?>');
-            "></span> / <span id="options-menu-appearance-nav-item" class="icon dark-invert" style="
-                background-image: url('<?= data("appearance", $appearance, "icon") ?>');
-            "></span></a>
+            <a id="options-menu-nav-item" onclick="openPopup('options-menu');"><span id="options-menu-locale-nav-item" class="icon" style="<?=
+                image(data("locales", str_replace("-", "_", $lang_code), "icon"), false)
+            ?>"></span> / <span id="options-menu-appearance-nav-item" class="icon" style="<?=
+                image(data("appearance", $appearance, "icon"))
+            ?>"></span></a>
             <a href="#about-me" id="about-me-nav-item"><span><?=
                 lang("sections", "about_me", "nav_menu")
             ?></span></a><a href="#skills" id="skills-nav-item"><span><?=
@@ -206,9 +224,9 @@ function lang(...$args) {
                         ?>
                             <a target="_blank" href="<?=
                                 data("social_links", $k, "url")
-                            ?>"><span class="icon dark-invert" style="background-image: url('<?=
-                                data("social_links", $k, "icon")
-                            ?>');" title="<?=
+                            ?>"><span class="icon" style="<?=
+                                image(data("social_links", $k, "icon"))
+                            ?>" title="<?=
                                 lang("social_links", $k, "tooltip")
                             ?>"></span></a>
                         <?php
@@ -228,9 +246,9 @@ function lang(...$args) {
                             ?>
                             <div class="card" id="skill-<?=
                                 $k
-                            ?>"><div class="icon" style="background-image: url('<?=
-                                $v->icon
-                            ?>');"></div><span class="title"><?=
+                            ?>"><div class="icon" style="<?=
+                                image($v->icon, false, $size = "4em")
+                            ?>"></div><span class="title"><?=
                                 lang("skills", $k, "title")
                             ?></span><span class="content"><?=
                                 lang("skills", $k, "description")
@@ -251,24 +269,24 @@ function lang(...$args) {
                     ?>
                         <div class="side-card" id="project-<?=
                             $k
-                        ?>"><div class="header"><span class="title"><span class="status-indicator left <?=
-                            $v->status
-                        ?>" title="<?=
-                            lang("status", $v->status)
-                        ?>"></span><?=
+                        ?>"><div class="header"><span class="title"><?=
                             lang("projects", $k, "title")
-                        ?></span><div class="illustration" style="background-image: url('<?=
-                            $v->illustration
-                        ?>');"></div></div><div class="content"><?=
+                        ?>&nbsp;<span class="status-indicator <?=
+                            $v->status
+                        ?>"><?=
+                            lang("status", $v->status)
+                        ?></span></span><div class="illustration" style="<?=
+                            image($v->illustration, false)
+                        ?>"></div></div><div class="content"><?=
                             lang("projects", $k, "description")
                         ?><div class="project-links">
                             <?php foreach ($v->links as $link_k => $link_v) {
                             ?>
                             <a target="_blank" href="<?=
                                 $link_v
-                            ?>"><span class="icon dark-invert" style="background-image: url('<?=
-                                data("project_links", $link_k, "icon")
-                            ?>');" title="<?=
+                            ?>"><span class="icon" style="<?=
+                                image(data("project_links", $link_k, "icon"))
+                            ?>" title="<?=
                                 lang("projects", "links", $link_k, "tooltip")
                             ?>"></span></a>
                             <?php
@@ -286,23 +304,23 @@ function lang(...$args) {
                     <div id="contact-details">
                         <div id="contact-phone"><a target="_blank" href="<?=
                             data("contact_details", "phone", "url")
-                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
-                            data("contact_details", "phone", "icon")
-                        ?>');"></span><?=
+                        ?>"><span class="icon" style="<?=
+                            image(data("contact_details", "phone", "icon"))
+                        ?>"></span><?=
                             lang("contact", "details", "phone")
                         ?></a></div>
                         <div id="contact-email"><a target="_blank" href="<?=
                             data("contact_details", "email", "url")
-                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
-                            data("contact_details", "email", "icon")
-                        ?>');"></span><?=
+                        ?>"><span class="icon" style="<?=
+                            image(data("contact_details", "email", "icon"))
+                        ?>"></span><?=
                             lang("contact", "details", "email")
                         ?></a></div>
                         <div id="contact-location"><a target="_blank" href="<?=
                             data("contact_details", "location", "url")
-                        ?>"><span class="icon dark-invert" style="background-image: url('<?=
-                            data("contact_details", "location", "icon")
-                        ?>');"></span><?=
+                        ?>"><span class="icon" style="<?=
+                            image(data("contact_details", "location", "icon"))
+                        ?>"></span><?=
                             lang("contact", "details", "location")
                         ?></a></div>
                         <div></div>
@@ -331,9 +349,9 @@ function lang(...$args) {
                                 lang("contact", "form", "result-msg", ((isset($_SESSION["contact_mail_result"]) && $_SESSION["contact_mail_result"])) ? "success" : "error")
                             ?></span><span><label for="contact-form-submit" hidden><?=
                                 lang("contact", "form", "submit", "label")
-                            ?></label><button type="submit" id="contact-form-submit"><span class="icon dark-invert" style="
-                                background-image: url('/res/img/icon/send.white.svg');
-                            "></span></button></span></div>
+                            ?></label><button type="submit" id="contact-form-submit"><span class="icon" style="<?=
+                                image("/res/img/icon/send.svg")
+                            ?>"></span></button></span></div>
                         </form>
                     </div>
                 </div>
@@ -359,9 +377,9 @@ function lang(...$args) {
                         <a onclick="redirect('?lang=<?= $key ?>&popup=options-menu');">
                             <span class="<?=
                                 ($key === $lang_code) ? "active" : ""
-                            ?>"><span class="icon" style="background-image: url('<?=
-                                $v->icon
-                            ?>');"></span><?=
+                            ?>"><span class="icon" style="<?=
+                                image($v->icon, false)
+                            ?>"></span><?=
                                 $v->title
                             ?></span>
                         </a>
@@ -380,9 +398,9 @@ function lang(...$args) {
                         <a onclick="redirect('?appearance=<?= $k ?>&popup=options-menu');">
                             <span class="<?=
                                 ($k === $appearance) ? "active" : ""
-                            ?>"><span class="icon dark-invert" style="background-image: url('<?=
-                                $v->icon
-                            ?>');"></span><?=
+                            ?>"><span class="icon" style="<?=
+                                image($v->icon)
+                            ?>"></span><?=
                                 lang("options", "appearance", $k)
                             ?></span>
                         </a>
@@ -393,6 +411,11 @@ function lang(...$args) {
                 </div>
             </div>
         </div>
+        <div id="footer"><div><a onclick="openPopup('options-menu');"><?=
+            lang("footer", "options_menu")
+        ?></a></div><div><a onclick="openPopup('legal-notice');"><?=
+            lang("footer", "legal_notice")
+        ?></a></div></div>
 
         <!-- external JS goes below -->
         <!-- <script type="text/javascript" src="/src/js/wavery/wavery.min.js"></script> https://github.com/up2pixy/wavery -->

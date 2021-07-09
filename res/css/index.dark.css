@@ -12,10 +12,8 @@ strong {
 a {
   color: #9cc9c4; }
 
-.status-indicator.online, .status-indicator.complete {
-  background: #63ff63; }
-.status-indicator.wip {
-  background: #ffc354; }
+.status-indicator {
+  color: #d9d9d9; }
 
 .dark-invert {
   filter: invert(1);
@@ -47,7 +45,8 @@ a {
   background: #121d21; }
   #content-flow .anchor {
     color: #fab09e; }
-  #content-flow .card {
+  #content-flow .card,
+  #content-flow .side-card {
     background: #1e3138; }
   #content-flow #about-me > .container #profile-flip-card > .flip-card-inner > * {
     background-color: #000;
@@ -61,5 +60,10 @@ a {
     #content-flow #contact > .container > #contact-form > form > div input::placeholder,
     #content-flow #contact > .container > #contact-form > form > div textarea::placeholder {
       color: #2b7e74; }
+  #content-flow #contact > .container > #contact-form > form > div button {
+    color: #121d21; }
+
+#footer {
+  background: #2d4341; }
 
 /*# sourceMappingURL=index.dark.css.map */

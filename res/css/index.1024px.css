@@ -49,9 +49,10 @@ body {
     #content-flow .side-card > * {
       margin: unset; }
     #content-flow .side-card > .header {
-      margin-right: unset;
+      margin: unset;
       width: auto; }
       #content-flow .side-card > .header > .illustration {
+        margin-bottom: 2vw;
         height: 40vw; }
     #content-flow .side-card > .content > .project-links {
       font-size: 1.5em; }

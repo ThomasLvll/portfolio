@@ -16,14 +16,7 @@ a {
 }
 
 .status-indicator {
-    &.online,
-    &.complete {
-        background: #63ff63;
-    }
-
-    &.wip {
-        background: #ffc354;
-    }
+    color: hsl(0, 0%, 85%);
 }
 
 .dark-invert {
@@ -75,7 +68,8 @@ a {
         color: $color5-6;
     }
 
-    .card {
+    .card,
+    .side-card {
         background: $color1-4;
     }
 
@@ -100,5 +94,13 @@ a {
                 color: #2b7e74;
             }
         }
+
+        > #contact-form > form > div button {
+            color: $dark-back;
+        }
     }
+}
+
+#footer {
+    background: $dark-back2;
 }
