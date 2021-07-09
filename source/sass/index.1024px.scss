@@ -68,25 +68,23 @@ body {
     }
 
     .side-card {
-        flex-direction: column !important;
-
-        > * {
-            margin: unset;
-        }
-
-        > .header {
-            margin: unset;
-            width: auto;
-
-            > .illustration {
-                margin-bottom: 2vw;
-                height: 40vw;
+        > .wrapper {
+            flex-direction: column !important;
+            
+            > * {
+                margin: unset;
             }
         }
 
-        > .content {
-            > .project-links {
-                font-size: 1.5em;
+        .header {
+            margin: unset;
+            width: auto;
+            
+            > .illustration {
+                margin-bottom: 2vw;
+                $size: 40vw;
+                width: $size;
+                height: $size;
             }
         }
     }

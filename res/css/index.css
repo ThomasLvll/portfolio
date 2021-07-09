@@ -292,36 +292,41 @@ a {
       text-align: justify; }
   #content-flow .side-card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 2.5em;
     padding: 1em; }
-    #content-flow .side-card > * {
-      margin: auto; }
-    #content-flow .side-card > .header {
-      margin-right: 1em;
-      width: 25vw;
-      flex-shrink: 0;
+    #content-flow .side-card .title {
       text-align: center; }
-      #content-flow .side-card > .header > .illustration {
-        margin-top: 2vw;
-        width: 100%;
+    #content-flow .side-card > .wrapper {
+      display: flex;
+      flex-direction: row;
+      margin-top: 2vw; }
+      #content-flow .side-card > .wrapper > * {
+        margin: auto; }
+    #content-flow .side-card .header {
+      margin-right: 1.5em;
+      width: 25vw;
+      flex-shrink: 0; }
+      #content-flow .side-card .header > .illustration {
+        margin: auto;
+        width: 25vw;
         height: 25vw;
         border-radius: 1em; }
-    #content-flow .side-card > .content {
+    #content-flow .side-card .content {
       text-align: justify; }
-      #content-flow .side-card > .content > .project-links {
+      #content-flow .side-card .content > .project-links {
         display: flex;
         margin-top: 2vw;
         justify-content: space-around;
         font-size: 1.2em; }
-        #content-flow .side-card > .content > .project-links a {
+        #content-flow .side-card .content > .project-links a {
           color: inherit;
           text-decoration: none; }
-    #content-flow .side-card:nth-child(even) {
+    #content-flow .side-card:nth-child(even) .wrapper {
       flex-direction: row-reverse; }
-      #content-flow .side-card:nth-child(even) > .header {
-        margin-left: 1em;
-        margin-right: 0; }
+    #content-flow .side-card:nth-child(even) .header {
+      margin-left: 1.5em;
+      margin-right: 0; }
   #content-flow #about-me > .anchor {
     display: none; }
   #content-flow #about-me > .container {
@@ -459,7 +464,7 @@ a {
 
 #footer {
   display: flex;
-  padding: .5em .75em 1em .75em;
+  padding: .5em 1em 1em 1em;
   font-size: .85em;
   text-transform: uppercase;
   background: #d6cbc2; }
