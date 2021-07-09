@@ -113,6 +113,9 @@
         "source_code": {
             "icon": "/res/img/icon/source-code.svg"
         },
+        "adobe_xd_mockup": {
+            "icon": "/res/img/icon/software/adobe-xd.svg"
+        },
         "figma_mockup": {
             "icon": "/res/img/icon/software/figma.svg"
         }
@@ -125,6 +128,15 @@
             "links": {
                 "source_code": "https://github.com/ThomasLvll/portfolio",
                 "figma_mockup": "/dl/mockup.fig"
+            }
+        },
+        "lamesangebleue": {
+            "illustration": "/res/img/projects/lamesangebleue.png",
+            "status": "wip",
+            "links": {
+                "demo": "http://54.38.240.191/ppe/",
+                "source_code": "",
+                "adobe_xd_mockup": ""
             }
         }
     },
@@ -142,5 +154,10 @@
             "icon": "/res/img/icon/contact/location.svg",
             "url": "maps:q=77970%20Jouy-le-Ch%C3%A2tel%2C%20France"
         }
-    }
+    },
+
+    "no_mask_icons": [
+        "/res/img/icon/software/adobe-xd.svg",
+        "/res/img/icon/software/figma.svg"
+    ]
 }
