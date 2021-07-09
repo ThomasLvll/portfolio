@@ -182,11 +182,11 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
     </head>
     <body>
         <div id="topbar"><div id="topbar-nav-menu">
-            <a id="options-menu-nav-item" onclick="openPopup('options-menu');"><span id="options-menu-locale-nav-item" class="icon" style="<?=
+            <!-- <a id="options-menu-nav-item" onclick="openPopup('options-menu');"><span id="options-menu-locale-nav-item" class="icon" style="<?=
                 image(data("locales", str_replace("-", "_", $lang_code), "icon"), false)
             ?>"></span> / <span id="options-menu-appearance-nav-item" class="icon" style="<?=
                 image(data("appearance", $appearance, "icon"))
-            ?>"></span></a>
+            ?>"></span></a> -->
             <a href="#about-me" id="about-me-nav-item"><span><?=
                 lang("sections", "about_me", "nav_menu")
             ?></span></a><a href="#skills" id="skills-nav-item"><span><?=
@@ -269,13 +269,13 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                     ?>
                         <div class="side-card" id="project-<?=
                             $k
-                        ?>"><div class="header"><span class="title"><?=
+                        ?>"><div class="title"><?=
                             lang("projects", $k, "title")
-                        ?>&nbsp;<span class="status-indicator <?=
+                        ?>&emsp;<span class="status-indicator <?=
                             $v->status
                         ?>"><?=
                             lang("status", $v->status)
-                        ?></span></span><div class="illustration" style="<?=
+                        ?></span></div><div class="wrapper"><div class="header"><div class="illustration" style="<?=
                             image($v->illustration, false)
                         ?>"></div></div><div class="content"><?=
                             lang("projects", $k, "description")
@@ -292,7 +292,7 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                             <?php
                             }
                             ?>
-                    </div></div></div>
+                    </div></div></div></div>
                     <?php
                     }
                     ?>
