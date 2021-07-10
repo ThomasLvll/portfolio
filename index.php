@@ -219,7 +219,7 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                             lang("about_me", "profile_title")
                         ?></span><span class="content"><?=
                             lang("about_me", "profile_description")
-                        ?></span><div id="social-links"><?php
+                        ?></span><div class="links" id="social-links"><?php
                         foreach (data("social_links") as $k => $v) {
                         ?>
                             <a target="_blank" href="<?=
@@ -267,9 +267,7 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                 <div class="container">
                     <?php foreach (data("projects") as $k => $v) {
                     ?>
-                        <div class="side-card" id="project-<?=
-                            $k
-                        ?>"><div class="title"><?=
+                        <div class="side-card" id="project-<?= $k ?>"><div class="title"><?=
                             lang("projects", $k, "title")
                         ?>&emsp;<span class="status-indicator <?=
                             $v->status
@@ -279,7 +277,7 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                             image($v->illustration, false)
                         ?>"></div></div><div class="content"><?=
                             lang("projects", $k, "description")
-                        ?><div class="project-links">
+                        ?><div class="links">
                             <?php foreach ($v->links as $link_k => $link_v) {
                             ?>
                             <a target="_blank" href="<?=
@@ -293,6 +291,36 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                             }
                             ?>
                     </div></div></div></div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div id="experience">
+                <div class="anchor"><?= lang("sections", "experience", "anchor") ?></div>
+                <div class="container">
+                    <?php foreach (data("experience") as $k => $v) {
+                    ?>
+                        <div class="side-card" id="experience-<?= $k ?>"><div class="title"><?=
+                            lang("experience", $k, "title")
+                        ?></div><div class="wrapper"><div class="header"><div class="illustration" style="<?=
+                            image($v->illustration, false)
+                        ?>"></div></div><div class="content"><?=
+                            lang("experience", $k, "description")
+                        ?><div class="links">
+                            <?php foreach ($v->links as $link_k => $link_v) {
+                            ?>
+                            <a target="_blank" href="<?=
+                                $link_v
+                            ?>"><span class="icon" style="<?=
+                                image(data("project_links", $link_k, "icon"))
+                            ?>" title="<?=
+                                lang("projects", "links", $link_k, "tooltip")
+                            ?>"></span></a>
+                            <?php
+                            }
+                            ?>
+                        </div></div></div></div>
                     <?php
                     }
                     ?>

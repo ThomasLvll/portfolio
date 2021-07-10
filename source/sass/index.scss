@@ -395,16 +395,16 @@ a {
 
         .content {
             text-align: justify;
+        }
 
-            > .project-links {
-                display: flex;
-                margin-top: 2vw;
-                justify-content: space-around;
-                font-size: 1.2em;
+        .links {
+            display: flex;
+            margin-top: 2vw;
+            justify-content: space-around;
+            font-size: 1.2em;
 
-                a {
-                    @include no-link-style;
-                }
+            a {
+                @include no-link-style;
             }
         }
 
@@ -485,8 +485,7 @@ a {
         }
     }
 
-    #about-me #social-links .icon,
-    #projects .project-links .icon {
+    .links .icon {
         @include interact-transition(filter);
         @include interact-transition(-webkit-filter);
 
