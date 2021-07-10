@@ -2,6 +2,9 @@ html,
 body {
   font-size: 38px; }
 
+.links {
+  justify-content: space-around; }
+
 .popup {
   width: 95vw;
   font-size: .9em; }
@@ -47,9 +50,8 @@ body {
   #content-flow .side-card > .wrapper {
     flex-direction: column !important; }
     #content-flow .side-card > .wrapper > * {
-      margin: unset; }
+      margin: unset !important; }
   #content-flow .side-card .header {
-    margin: unset;
     width: auto; }
     #content-flow .side-card .header > .illustration {
       margin-bottom: 2vw;
@@ -67,5 +69,7 @@ body {
     #content-flow #about-me > .container #profile-description .title {
       margin-left: auto;
       margin-right: auto; }
+    #content-flow #about-me > .container #profile-description #social-links {
+      justify-content: space-between; }
 
 /*# sourceMappingURL=index.1024px.css.map */

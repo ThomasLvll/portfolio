@@ -303,6 +303,8 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                     ?>
                         <div class="side-card" id="experience-<?= $k ?>"><div class="title"><?=
                             lang("experience", $k, "title")
+                        ?></div><div class="subtitle"><?=
+                            lang("experience", $k, "subtitle")
                         ?></div><div class="wrapper"><div class="header"><div class="illustration" style="<?=
                             image($v->illustration, false)
                         ?>"></div></div><div class="content"><?=
@@ -377,7 +379,9 @@ function image($url, $as_mask = "auto", $size = "contain", $position = "center",
                                 lang("contact", "form", "result-msg", ((isset($_SESSION["contact_mail_result"]) && $_SESSION["contact_mail_result"])) ? "success" : "error")
                             ?></span><span><label for="contact-form-submit" hidden><?=
                                 lang("contact", "form", "submit", "label")
-                            ?></label><button type="submit" id="contact-form-submit"><span class="icon" style="<?=
+                            ?></label><button type="submit" id="contact-form-submit" aria-label="<?=
+                                lang("contact", "form", "submit", "label")
+                            ?>"><span class="icon" style="<?=
                                 image("/res/img/icon/send.svg")
                             ?>"></span></button></span></div>
                         </form>

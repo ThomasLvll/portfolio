@@ -3,6 +3,10 @@ body {
     font-size: 38px;
 }
 
+.links {
+    justify-content: space-around;
+}
+
 .popup {
     width: 95vw;
     font-size: .9em;
@@ -72,12 +76,11 @@ body {
             flex-direction: column !important;
             
             > * {
-                margin: unset;
+                margin: unset !important;
             }
         }
 
         .header {
-            margin: unset;
             width: auto;
             
             > .illustration {
@@ -107,6 +110,10 @@ body {
             .title {
                 margin-left: auto;
                 margin-right: auto;
+            }
+
+            #social-links {
+                justify-content: space-between;
             }
         }
     }
