@@ -141,6 +141,19 @@
         }
     },
 
+    "experience": {
+        "saqv": {
+            "illustration": "/res/img/experience/saqv.png",
+            "dates": [
+                "2021-05-10",
+                "2021-07-02"
+            ],
+            "links": {
+                "demo": "https://www.saqv.fr"
+            }
+        }
+    },
+
     "contact_details": {
         "phone": {
             "icon": "/res/img/icon/contact/phone.svg",

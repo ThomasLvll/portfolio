@@ -314,14 +314,14 @@ a {
         border-radius: 1em; }
     #content-flow .side-card .content {
       text-align: justify; }
-      #content-flow .side-card .content > .project-links {
-        display: flex;
-        margin-top: 2vw;
-        justify-content: space-around;
-        font-size: 1.2em; }
-        #content-flow .side-card .content > .project-links a {
-          color: inherit;
-          text-decoration: none; }
+    #content-flow .side-card .links {
+      display: flex;
+      margin-top: 2vw;
+      justify-content: space-around;
+      font-size: 1.2em; }
+      #content-flow .side-card .links a {
+        color: inherit;
+        text-decoration: none; }
     #content-flow .side-card:nth-child(even) .wrapper {
       flex-direction: row-reverse; }
     #content-flow .side-card:nth-child(even) .header {
@@ -376,14 +376,10 @@ a {
         #content-flow #about-me > .container #profile-description #social-links a {
           color: inherit;
           text-decoration: none; }
-  #content-flow #about-me #social-links .icon,
-  #content-flow #projects .project-links .icon {
+  #content-flow .links .icon {
     transition: filter 250ms ease;
     transition: -webkit-filter 250ms ease; }
-    #content-flow #about-me #social-links .icon:active, #content-flow #about-me #social-links .icon:focus, #content-flow #about-me #social-links .icon:hover,
-    #content-flow #projects .project-links .icon:active,
-    #content-flow #projects .project-links .icon:focus,
-    #content-flow #projects .project-links .icon:hover {
+    #content-flow .links .icon:active, #content-flow .links .icon:focus, #content-flow .links .icon:hover {
       filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333));
       -webkit-filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3333333333)); }
   #content-flow #skills > .container,
