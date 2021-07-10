@@ -59,9 +59,25 @@ a {
     @include background-image('');
 }
 
+.links {
+    display: flex;
+    margin-top: 2vw;
+    justify-content: space-evenly;
+    font-size: 1.2em;
+
+    a {
+        @include no-link-style;
+    }
+}
+
 .title {
     color: $color4-4;
     font-size: 1.4em;
+}
+
+.subtitle {
+    color: $color5-4;
+    text-transform: uppercase;
 }
 
 .popup-window-filter {
@@ -365,14 +381,15 @@ a {
         margin-bottom: 2.5em;
         padding: 1em;
 
-        .title {
+        .title,
+        .subtitle {
             text-align: center;
+            margin-bottom: .3em;
         }
 
         > .wrapper {
             display: flex;
             flex-direction: row;
-            margin-top: 2vw;
             
             > * {
                 margin: auto;
@@ -395,17 +412,6 @@ a {
 
         .content {
             text-align: justify;
-        }
-
-        .links {
-            display: flex;
-            margin-top: 2vw;
-            justify-content: space-around;
-            font-size: 1.2em;
-
-            a {
-                @include no-link-style;
-            }
         }
 
         &:nth-child(even) {
@@ -473,14 +479,8 @@ a {
             }
 
             #social-links {
-                display: flex;
-                padding-top: 2vw;
                 justify-content: space-around;
                 font-size: 1.5em;
-
-                a {
-                    @include no-link-style;
-                }
             }
         }
     }

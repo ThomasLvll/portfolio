@@ -22,6 +22,9 @@ a {
 .title {
   color: #f4a261; }
 
+.subtitle {
+  color: #e76f51; }
+
 .popup {
   background: rgba(0, 0, 0, 0.5); }
   .popup > * > *:last-child > div > a > span.active {
