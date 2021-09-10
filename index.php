@@ -113,7 +113,7 @@ if (count($_GET) > 0) {
 
 
 $VARS = [
-    "age" => 20,
+    "age" => date_diff(date_create("2000-08-31"), date_create(date("Y-m-d")))->format("%y"),
     "/link" => "</a>"
 ];
 
