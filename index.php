@@ -8,7 +8,7 @@ require "vendor/autoload.php";
 
 function check_array_keys($keys, $array) {
     foreach ($keys as $k)
-        if (! array_key_exists($k, $array) || mb_strlen($_POST[$k]) < 1)
+        if (! array_key_exists($k, $array) || strlen($_POST[$k]) < 1)
             return false;
     return true;
 }
