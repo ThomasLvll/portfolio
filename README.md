@@ -1,4 +1,4 @@
-# My Fullstack Developer portfolio
+# My Full Stack Developer portfolio
 As a programming student, I needed a place where I can introduce myself and the projects I did, which anyone can consult. So, there is its source code.
 <br>
 Result is accessible at www.thomasleveille.com.
